@@ -40,25 +40,6 @@ def takePhoto():
         print("Unable to draw image markers")
     cv2.waitKey(1)
 
-def moveToPose(robot, pose):
-    code = robot.set_position(*pose.pose(), wait=True)
-    if code != 0:
-        print(f"Move failed, code: {code}, error_code: {robot.error_code}, warn_code: {robot.warn_code}")
-        robot.clean_error()
-        robot.clean_warn()
-        robot.motion_enable(True)
-        robot.set_mode(0)
-        robot.set_state(0)
-
-def moveToJointAngles(robot, joint_angles):
-    code = robot.set_servo_angle(angle=joint_angles.angles(), wait=True)
-    if code != 0:
-        print(f"Move failed, code: {code}, error_code: {robot.error_code}, warn_code: {robot.warn_code}")
-        robot.clean_error()
-        robot.clean_warn()
-        robot.motion_enable(True)
-        robot.set_mode(0)
-        robot.set_state(0)
 
 def main():
     print("Commands: ")
@@ -70,7 +51,7 @@ def main():
 
 
     initialize_camera()
-    
+
     robot = XArmAPI(robot_ip)
     robot.connect()
 

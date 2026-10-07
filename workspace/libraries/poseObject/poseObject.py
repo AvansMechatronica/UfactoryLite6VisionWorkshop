@@ -15,7 +15,7 @@ class poseObject:
 
 
 home_pose = poseObject(250, 0.0, 400, 180, 0, 0)
-observation_pose = poseObject(250, 0.0, 300, 180, 0, 0)
+observation_pose = poseObject(150, 0.0, 300, 180, 0, 0)
 left_pose = poseObject(250, -200, 400, 180, 0, 0)
 right_pose = poseObject(250, 200, 400, 180, 0, 0)
 
@@ -36,3 +36,23 @@ class jointAngles:
         return f"jointAngles(joint1={self.joint1}, joint2={self.joint2}, joint3={self.joint3}, joint4={self.joint4}, joint5={self.joint5}, joint6={self.joint6})"   
 
 home_joint_angles = jointAngles(0, 0, 90, 0, 90, 0)  # degrees, one value per joint
+
+def moveToPose(robot, pose):
+    code = robot.set_position(*pose.pose(), wait=True)
+    if code != 0:
+        print(f"Move failed, code: {code}, error_code: {robot.error_code}, warn_code: {robot.warn_code}")
+        robot.clean_error()
+        robot.clean_warn()
+        robot.motion_enable(True)
+        robot.set_mode(0)
+        robot.set_state(0)
+
+def moveToJointAngles(robot, joint_angles):
+    code = robot.set_servo_angle(angle=joint_angles.angles(), wait=True)
+    if code != 0:
+        print(f"Move failed, code: {code}, error_code: {robot.error_code}, warn_code: {robot.warn_code}")
+        robot.clean_error()
+        robot.clean_warn()
+        robot.motion_enable(True)
+        robot.set_mode(0)
+        robot.set_state(0)
