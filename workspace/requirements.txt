@@ -1,0 +1,6 @@
+xarm-python-sdk
+keyboard
+numpy
+opencv-python
+Pillow
+pyniryo

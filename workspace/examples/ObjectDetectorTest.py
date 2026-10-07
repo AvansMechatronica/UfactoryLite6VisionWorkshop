@@ -1,3 +1,7 @@
+import os
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # allow running this file directly
+
 import cv2
 # import the opencv library
 import keyboard  # load keyboard package
@@ -8,10 +12,13 @@ from libraries.vision.Workspace import Workspace
 from libraries.vision.enums import *
 import time
 
-camera_index = 1
+camera_index = 0
 
 def main():
     camera = usbCamera(camera_index)
+    camera.set_brightness(1.5)
+    camera.set_contrast(1.0)
+    camera.set_saturation(1.0)
 
     workspace = Workspace()
 

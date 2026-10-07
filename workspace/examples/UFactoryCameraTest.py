@@ -17,8 +17,15 @@ robot_ip = '192.168.1.193'  # Replace with your robot's IP address
 camera_index = 0
 # The pose from where the image processing happens
 
-camera = usbCamera(camera_index, rotate_frame= True)
+def initialize_camera():
+    global camera
+    camera = usbCamera(camera_index)
+    camera.set_brightness(1.5)
+    camera.set_contrast(1.0)
+    camera.set_saturation(1.0)
+
 def takePhoto():
+
     image = camera.take_photo()
     result, crop_image = extract_img_markers(image, workspace_ratio=1.0)
     if result:
@@ -61,6 +68,9 @@ def main():
     print(" p --> Take Photo")
     print(" s --> Save Image")
 
+
+    initialize_camera()
+    
     robot = XArmAPI(robot_ip)
     robot.connect()
 

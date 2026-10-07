@@ -38,12 +38,15 @@ class usbCamera:
                 self.orig_frame = cv2.rotate(self.orig_frame, cv2.ROTATE_180)
             self.frame = self.adjust_image(self.orig_frame)
             if self.display_stream:
+                display_frame = self.frame
                 if self.display_crosshair:
-                    height = self.frame.shape[0]
-                    width = self.frame.shape[1]
-                    cv2.line(self.frame, (int(width/2), 0), (int(width/2), height-1), (0, 255, 0), 1)
-                    cv2.line(self.frame, (0, int(height/2)), (width-1, int(height/2)), (0, 255, 0), 1)
-                cv2.imshow(self.stream_frame_name, self.frame)
+                    # Draw on a copy so photos and marker detection stay free of the overlay
+                    display_frame = self.frame.copy()
+                    height = display_frame.shape[0]
+                    width = display_frame.shape[1]
+                    cv2.line(display_frame, (int(width/2), 0), (int(width/2), height-1), (0, 255, 0), 1)
+                    cv2.line(display_frame, (0, int(height/2)), (width-1, int(height/2)), (0, 255, 0), 1)
+                cv2.imshow(self.stream_frame_name, display_frame)
                 cv2.waitKey(1)
 
         self.abort_ready = True
