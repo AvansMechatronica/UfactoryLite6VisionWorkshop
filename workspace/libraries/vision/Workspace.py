@@ -1,8 +1,8 @@
-from pyniryo import *
 import json
 import math
 import numpy as np
 from libraries.vision.transform_functions import *
+from libraries.xarm_support.xarm_support import *
 
 from cv2 import *
 
@@ -11,11 +11,11 @@ class Workspace:
 
     def __init__(self):
 
-        self.UpperLeftPose = PoseObject(x=-1000.0, y=-1000.0, z=0.1, roll=0, pitch=0, yaw=0) # 1
-        self.UpperRightPose = PoseObject(x=1000.0, y=-1000.0, z=0.1, roll=0, pitch=0, yaw=0) # 2
-        self.LowerRightPose = PoseObject(x=1000.0, y=500.0, z=0.1, roll=0, pitch=0, yaw=0) # 3
-        self.LowerLeftPose = PoseObject(x=-1000.0, y=500.0, z=0.1, roll=0, pitch=0, yaw=0) # 4
-        self.orgin = PoseObject(x=0, y=0, z=0, roll=0, pitch=1.57, yaw=0)
+        self.UpperLeftPose = xarm_pose(x=-1000.0, y=-1000.0, z=0.1, roll=0, pitch=0, yaw=0) # 1
+        self.UpperRightPose = xarm_pose(x=1000.0, y=-1000.0, z=0.1, roll=0, pitch=0, yaw=0) # 2
+        self.LowerRightPose = xarm_pose(x=1000.0, y=500.0, z=0.1, roll=0, pitch=0, yaw=0) # 3
+        self.LowerLeftPose = xarm_pose(x=-1000.0, y=500.0, z=0.1, roll=0, pitch=0, yaw=0) # 4
+        self.orgin = xarm_pose(x=0, y=0, z=0, roll=0, pitch=1.57, yaw=0)
         #self.calculate_parameters();
 
     def calculate_parameters(self):

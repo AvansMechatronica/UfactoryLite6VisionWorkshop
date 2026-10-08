@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import numpy as np
-from pyniryo import *
+
 
 from libraries.vision.image_functions import *
 

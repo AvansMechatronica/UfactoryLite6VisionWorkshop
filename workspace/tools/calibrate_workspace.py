@@ -6,6 +6,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
 import keyboard  # load keyboard package
 from xarm.wrapper import XArmAPI
 
+
 from libraries.vision.markers_detection import *
 from libraries.vision.usbCamera import usbCamera
 from libraries.xarm_support.xarm_support import *
