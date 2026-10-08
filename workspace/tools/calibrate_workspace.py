@@ -108,9 +108,15 @@ def main():
         print("Marker 4:", position4)
 
         workspace.set(pose1, pose2, pose3, pose4)
-        with open('../workspace.json', 'w') as outfile:
-            outfile.write(workspace.to_json())
         wsp = workspace.to_json()
+        try:
+            with open('workspace.json', 'w') as outfile:
+                outfile.write(wsp)
+        except Exception as e:
+            print(f"Failed to write workspace to file: {e}")
+        # with open('../workspace.json', 'w') as outfile:
+        #     outfile.write(wsp)
+        
         print(wsp)
 
 if __name__ == "__main__":
