@@ -77,9 +77,10 @@ def extract_sub_img(img, list_corners, ratio_w_h=1.0):
 
 def draw_markers(img, workspace_ratio=1.0):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray = cv2.GaussianBlur(gray, (5, 5), 0)
 
     img_thresh = cv2.adaptiveThreshold(gray, maxValue=255, adaptiveMethod=cv2.ADAPTIVE_THRESH_MEAN_C,
-                                       thresholdType=cv2.THRESH_BINARY, blockSize=15, C=32)
+                                       thresholdType=cv2.THRESH_BINARY, blockSize=51, C=10)
 
     list_good_candidates = find_markers_from_img_thresh(img_thresh)
     if not list_good_candidates:
@@ -167,8 +168,9 @@ class Marker:
         return len(self.list_centers)
 
     def get_id_from_slice(self, img_thresh):
-        x, y, w, h = self.cx - 1, self.cy - 1, 3, 3
-        self.value_for_id = np.mean(img_thresh[y:y + h, x:x + w])
+        x, y, w, h = max(self.cx - 1, 0), max(self.cy - 1, 0), 3, 3
+        patch = img_thresh[y:y + h, x:x + w]
+        self.value_for_id = np.mean(patch) if patch.size else 0.0
         # return value_for_id
         if self.value_for_id > 200:
             self.identifiant = "A"

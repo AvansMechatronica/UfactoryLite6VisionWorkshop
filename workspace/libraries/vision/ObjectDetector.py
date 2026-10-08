@@ -224,7 +224,10 @@ class ObjectDetector:
             return None, None, None, "", "", im_ret
 
         # Getting color
-        colors_representation = np.mean(self._img[cy - 3:cy + 3, cx - 3:cx + 3], axis=(0, 1))
+        patch = self._img[max(cy - 3, 0):cy + 3, max(cx - 3, 0):cx + 3]
+        if patch.size == 0:
+            return None, None, None, "", "", im_ret
+        colors_representation = np.mean(patch, axis=(0, 1))
         most_present_channel = np.argmax(colors_representation)
 
         obj_color = ["BLUE", "GREEN", "RED"][most_present_channel]

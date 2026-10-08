@@ -7,7 +7,6 @@ from libraries.vision.transform_functions import *
 from cv2 import *
 
 
-
 class Workspace:
 
     def __init__(self):

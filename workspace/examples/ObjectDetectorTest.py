@@ -2,33 +2,69 @@ import os
 import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # allow running this file directly
 
+from libraries.xarm_support.xarm_support import moveToJointAngles, moveToPose
+
 import cv2
 # import the opencv library
 import keyboard  # load keyboard package
+from xarm.wrapper import XArmAPI
+
 from libraries.vision.usbCamera import usbCamera
 from libraries.vision.markers_detection import *
 from libraries.vision.ObjectDetector import ObjectDetector
-from libraries.vision.Workspace import Workspace
 from libraries.vision.enums import *
+from libraries.xarm_support.xarm_support import *
+
 import time
 
 camera_index = 0
+robot_ip = '192.168.1.193'  # Replace with your robot's IP address
+
+def printMenu():
+    print("Commands: ")
+    print(" q --> Quit")
+    print(" p --> Take Photo")
 
 def main():
+
+    robot = XArmAPI(robot_ip)
+    robot.connect()
+
+    robot.clean_error()
+    robot.motion_enable(True)
+    robot.set_mode(0)
+    robot.set_state(0)
+
+    print("To home pose")
+    moveToJointAngles(robot, home_joint_angles)
+
     camera = usbCamera(camera_index)
     camera.set_brightness(1.5)
     camera.set_contrast(1.0)
     camera.set_saturation(1.0)
 
-    workspace = Workspace()
-
     while True:
-        if keyboard.is_pressed("q"):  # returns True if "q" is pressed
+        printMenu()
+        ans = input("Enter Choice: ")
+        ans = ans.lower()
+
+        if ans == 'q':  # returns True if "q" is pressed
+            moveToJointAngles(robot, home_joint_angles)
+            camera.end();
+            robot.disconnect()
+            time.sleep(0.5)
             camera.end();
             break
 
-        if keyboard.is_pressed("p"):  # returns True if "q" is pressed
+        if ans == 'p':  # returns True if "q" is pressed
+            print("To observation")
+            moveToPose(robot, observation_pose)
+
             image = camera.take_photo()
+
+            print("Back to home pose")
+            moveToJointAngles(robot, home_joint_angles)
+            
             detector = ObjectDetector(
                 obj_type=ObjectType.ANY, obj_color=ColorHSVPrime.RED,
                 workspace_ratio=1.0,

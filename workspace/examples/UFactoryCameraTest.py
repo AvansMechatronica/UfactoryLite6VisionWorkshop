@@ -9,7 +9,7 @@ import cv2
 import keyboard  # load keyboard package
 from libraries.vision.markers_detection import *
 from libraries.vision.usbCamera import usbCamera
-from libraries.poseObject.poseObject import *
+from libraries.xarm_support.xarm_support import *
 from libraries.vision.enums import *
 
 robot_ip = '192.168.1.193'  # Replace with your robot's IP address
@@ -41,7 +41,7 @@ def takePhoto():
     cv2.waitKey(1)
 
 
-def main():
+def printMenu():
     print("Commands: ")
     print(" q --> Quit")
     print(" o --> Goto to observation-pose")
@@ -49,6 +49,7 @@ def main():
     print(" p --> Take Photo")
     print(" s --> Save Image")
 
+def main():
 
     initialize_camera()
 
@@ -63,7 +64,6 @@ def main():
     print("To home pose")
     moveToJointAngles(robot, home_joint_angles)
 
-
     print("To observation")
     moveToPose(robot, observation_pose)
 
@@ -76,22 +76,25 @@ def main():
     print("Ready")
 
     while True:
-        if keyboard.is_pressed("q"):  # returns True if "q" is pressed
-            moveToPose(robot, home_pose)
+        printMenu()
+        ans = input("Enter Choice: ")
+        ans = ans.lower()
+        if ans == "q":  # returns True if "q" is pressed
+            moveToJointAngles(robot, home_joint_angles)
             camera.end();
             robot.disconnect()
             time.sleep(0.5)
             break
-        if keyboard.is_pressed("o"):  # returns True if "o" is pressed
+        if ans == "o":  # returns True if "o" is pressed
             print("To observation")
             moveToPose(robot, observation_pose)
             camera.enable_crosshair(True)
             time.sleep(0.5)
-        if keyboard.is_pressed("r"):  # returns True if "o" is pressed
+        if ans == "r":  # returns True if "o" is pressed
             print("To resting pose")
             moveToPose(robot, home_pose)
             time.sleep(0.5)
-        if keyboard.is_pressed("p"):  # returns True if "o" is pressed
+        if ans == "p":  # returns True if "o" is pressed
             print("Take photo")
             takePhoto()
             time.sleep(0.5)
