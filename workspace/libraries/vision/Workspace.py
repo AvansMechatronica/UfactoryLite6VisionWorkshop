@@ -102,7 +102,7 @@ class Workspace:
         def get_pose(self, x_rel, y_rel, yaw_rel, yaw_center=None):
             # simple way, better to implement vectors
 
-            pose = PoseObject(x=0, y=0, z=0, roll=0, pitch=0, yaw=0)
+            pose = xarm_pose(x=0, y=0, z=0, roll=0, pitch=0, yaw=0)
 
             # x-direction
             rel_x_ws = self.height * x_rel

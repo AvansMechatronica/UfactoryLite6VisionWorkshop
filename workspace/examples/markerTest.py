@@ -9,7 +9,7 @@ from xarm.wrapper import XArmAPI
 from libraries.vision.usbCamera import usbCamera
 from libraries.vision.markers_detection import *
 from libraries.vision.enums import *
-from libraries.poseObject.poseObject import *
+from libraries.xarm_support.xarm_support import *
 
 camera_index = 0
 robot_ip = '192.168.1.193'  # Replace with your robot's IP address

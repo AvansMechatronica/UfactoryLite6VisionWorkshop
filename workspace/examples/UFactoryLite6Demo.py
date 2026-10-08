@@ -9,9 +9,9 @@ robot_ip = '192.168.1.193'  # Replace with your robot's IP address
 
 
 #define poses
-home_pose = xarm_support.poseObject(250, 0.0, 400, 180, 0, 180)
-left_pose = xarm_support.poseObject(250, -200, 400, 180, 0, 180)
-right_pose = xarm_support.poseObject(250, 200, 400, 180, 0, 180)
+home_pose = xarm_support.xarm_pose(250, 0.0, 400, 180, 0, 180)
+left_pose = xarm_support.xarm_pose(250, -200, 400, 180, 0, 180)
+right_pose = xarm_support.xarm_pose(250, 200, 400, 180, 0, 180)
 poses = [home_pose, left_pose, right_pose, home_pose]
 
 

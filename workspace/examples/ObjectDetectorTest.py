@@ -39,7 +39,7 @@ def main():
     moveToJointAngles(robot, home_joint_angles)
 
     camera = usbCamera(camera_index)
-    camera.set_brightness(1.5)
+    camera.set_brightness(2.0)
     camera.set_contrast(1.0)
     camera.set_saturation(1.0)
 
@@ -80,9 +80,11 @@ def main():
                     print(obj_type)
                     print(obj_color)
                     cv2.imshow("Result", im_draw)
-                    cv2.waitKey(1)
+                    
                     #realword_pose = workspace.get_pose(result_pose.x, result_pose.y, result_pose.yaw)
                     #print(realword_pose)
+            
+            cv2.waitKey(1)
             time.sleep(1)
 
 

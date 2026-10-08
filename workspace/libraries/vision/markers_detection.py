@@ -108,9 +108,9 @@ def draw_markers(img, workspace_ratio=1.0):
         radius = marker.get_radius()
         cv2.circle(im_draw, (cx, cy), radius, (0, 200, 0), 2)
         cv2.putText(im_draw, "{}".format(i + 1),
-                    (cx + 5, cy - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 0, 0), 3)
+                    (cx + 15, cy - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 0, 0), 3)
         cv2.putText(im_draw, "{}".format(i + 1),
-                    (cx + 5, cy - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 200, 0), 2)
+                    (cx + 15, cy - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 200, 0), 2)
 
 
     return True, im_draw
