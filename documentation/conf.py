@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Workshop Vision Driven Robotics'
-copyright = 'Gerard Harkeman'
+copyright = 'Gerard Harkema'
 author = 'Gerard Harkema'
 release = '0.1'
 

@@ -58,7 +58,8 @@ def main():
 
         if ans == 'p':  # returns True if "q" is pressed
             print("To observation")
-            moveToPose(robot, observation_pose)
+            #moveToPose(robot, observation_pose)
+            observation_pose.moveTo(robot)
 
             image = camera.take_photo()
 

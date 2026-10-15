@@ -23,7 +23,7 @@ class xarm_pose:
             robot.set_state(0)
 
 home_pose = xarm_pose(250, 0.0, 400, 180, 0, 0)
-observation_pose = xarm_pose(170, 0.0, 350, 180, 0, 0)
+observation_pose = xarm_pose(210, 0.0, 350, 180, 0, 0)
 left_pose = xarm_pose(250, -200, 400, 180, 0, 0)
 right_pose = xarm_pose(250, 200, 400, 180, 0, 0)
 
