@@ -18,6 +18,7 @@ Workshop Vision Driven Robotics
 
    documentation/overview.md
    documentation/install.md
+   documentation/real_robot.md
    documentation/assignment_1.md
    documentation/examples.md
    documentation/faq.md

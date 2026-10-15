@@ -1,4 +1,4 @@
-# Visual Studio Code en PlatformIO
+# Installatie van de software
 
 In deze sectie lees je hoe je Visual Studio Code (VS Code) en PlatformIO installeert voor het ontwikkelen van microcontrollerprojecten.
 
