@@ -3,4 +3,5 @@ keyboard
 numpy
 opencv-python
 Pillow
+easygui
 

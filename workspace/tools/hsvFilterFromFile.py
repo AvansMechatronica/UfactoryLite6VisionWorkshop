@@ -64,11 +64,12 @@ def main():
         return
 
     cv2.imshow("Orignal Imgae", image)
-
-    time.sleep(2)
+    cv2.waitKey(1)
 
     window_name = 'HSV Threshold'
-    cv2.namedWindow(window_name) # Create a window named 'Colorbars'
+    cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
+    cv2.imshow(window_name, image)
+    cv2.waitKey(1)
 
     # assign strings for ease of coding
     hh = 'Hue High'
@@ -104,10 +105,14 @@ def main():
             break
 
         if keyboard.is_pressed("l"):  # returns True if "q" is pressed
-            image_path = easygui.fileopenboxl(title=load_title, default=file_type)
+            image_path = easygui.fileopenbox(title=load_title, default=file_type)
             if image_path is not None:
                 image = cv2.imread(image_path)
                 cv2.imshow("Orignal Imgae", image)
+
+        # window closed by the user
+        if cv2.getWindowProperty(window_name, cv2.WND_PROP_VISIBLE) < 1:
+            break
 
         # read trackbar positions for each trackbar
         hul = cv2.getTrackbarPos(hl, window_name)
