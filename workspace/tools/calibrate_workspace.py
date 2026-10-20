@@ -18,7 +18,7 @@ from libraries.vision.enums import *
 
 robot_ip = '192.168.1.193'  # Replace with your robot's IP address
 
-camera_index = 0
+camera_index = 1
 
 def initialize_camera():
     global camera
@@ -64,11 +64,15 @@ def read_marker_position(robot, marker_number):
         while not stop_event.is_set():
             code, position = robot.get_position()
             if code == 0:
-                print(
-                    f"Current robot position: {position}{orientation_warning(position)}",
-                    flush=True,
-                )
-                pass
+                if 0:
+                    print(
+                        f"Current robot position: {position}{orientation_warning(position)}",
+                        flush=True,
+                    )
+                else:
+                    warning = orientation_warning(position)
+                    if warning:
+                        print(warning.strip(), flush=True)
             else:
                 print(f"Could not read robot position, code {code}", flush=True)
             stop_event.wait(0.5)

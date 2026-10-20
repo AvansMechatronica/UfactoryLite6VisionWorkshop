@@ -1,10 +1,13 @@
+import os
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # allow running this file directly
 import cv2
 # import the opencv library
 import keyboard  # load keyboard package
-from DahengAvansLibrary.DahengLibrary import dahengCamera
-from Ufactory.libraries.vision.enums import ColorHSV
-from Ufactory.libraries.vision.image_functions import *
-from Ufactory.libraries.vision.enums import *
+from libraries.vision.usbCamera import usbCamera
+from libraries.vision.enums import ColorHSV
+from libraries.vision.image_functions import *
+from libraries.vision.enums import *
 import time
 
 camera_index = 0
@@ -47,16 +50,16 @@ def threshold_hsv(frame_hsv, list_min_hsv, list_max_hsv, reverse_hue=False):
         high_red_im = cv2.inRange(frame_hsv, list_min_v_c, list_max_v_c)
         return cv2.addWeighted(low_red_im, 1.0, high_red_im, 1.0, 0)
 
-
-def main():
+def printMenu():
     print("Commands: ")
     print(" q --> Quit")
-    print(" s --> Enable streaming(default)")
-    print(" p --> Take photo/Disable streaming")
+    #print(" s --> Enable streaming(default)")
+    #print(" p --> Take photo/Disable streaming")
 
-    camera = dahengCamera(1, True)
-    print("Press [q] and then [Enter] to Exit the Program")
-    camera.startStraem()
+def main():
+    printMenu()
+
+    camera = usbCamera(1, False)
 
     time.sleep(2)
 
@@ -94,12 +97,8 @@ def main():
     cv2.setTrackbarPos(vh, window_name, 255)
 
     while True:
-        if keyboard.is_pressed("q"):  # returns True if "q" is pressed
-            #cv2.destroyAllWindows()
-            camera.close()
-            break
 
-        image = camera.grab_frame()
+        image = camera.take_photo(display_photo=False)
 
         cv2.imshow("Original", image)
 
@@ -137,8 +136,9 @@ def main():
             cv2.imshow("Saturation", s_img)
             cv2.imshow("Value", v_img)
 
-
-        cv2.waitKey(1)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            camera.end()
+            break
 
 
 if __name__ == "__main__":
