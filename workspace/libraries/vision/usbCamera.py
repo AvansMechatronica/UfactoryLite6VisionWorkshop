@@ -13,6 +13,18 @@ class usbCamera:
     def __init__(self, cameraIndex = 0, display_stream = True, frame_name = "Stream", rotate_frame = False):
 
         self.vid = cv2.VideoCapture(cameraIndex)
+        if not self.vid.isOpened():
+            self.vid.release()
+            for index in range(5):
+                if index == cameraIndex:
+                    continue
+                self.vid = cv2.VideoCapture(index)
+                if self.vid.isOpened():
+                    logging.warning("Camera %s not available, using camera %s", cameraIndex, index)
+                    break
+                self.vid.release()
+            else:
+                raise RuntimeError("No camera found (tried index %s and 0-4)" % cameraIndex)
 
         self.stream_frame_name = frame_name
         self.display_stream = display_stream
@@ -34,6 +46,8 @@ class usbCamera:
         while not self.abort:
             time.sleep(0.1)
             self.ret, self.orig_frame = self.vid.read()
+            if not self.ret or self.orig_frame is None:
+                continue
             if self.rotate_frame:
                 self.orig_frame = cv2.rotate(self.orig_frame, cv2.ROTATE_180)
             self.frame = self.adjust_image(self.orig_frame)
