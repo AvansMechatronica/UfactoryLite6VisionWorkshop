@@ -6,6 +6,15 @@ In dit hoofdstuk wordt beschreven hoe je een verbinding kunt opzetten tussen een
 In dit document spreken we over een `development-computer`, hiermee wordt bedoeld de PC of Laptop waarmee je de robot bedient en je programma's voor de robot ontwikkelt.
 :::
 
+## Opbouw van de Robotcel
+Plaats de robot op de bijgevoegde montageplaat en zorg dat deze stevig is bevestigd.
+
+![Image](../images/robot_setup.jpg)
+Verbind de robot met de voeding en zorg dat deze correct is aangesloten. Sluit tevens de noodstop aan.
+![Image](../images/robot_ip.jpg)
+
+Noteer het IP-adres van de robot, deze heb je later nodig om verbinding te maken met de robot via je development-computer. Je kunt dit IP-adres vinden op de sticker aan de (rechtsonder)achterzijde van de robot.
+
 ## Netwerkverbinding opzetten
 :::::::{card} 
 

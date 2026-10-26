@@ -60,3 +60,46 @@ git clone https://github.com/<jouw_account_naam>/UfactoryLite6VisionWorkshop.git
 :::{warning}
 Plaats de bestanden niet in een `OneDrive`-map. Dit kan compileerproblemen veroorzaken.
 :::
+
+## Python Environment
+Een Python-environment (omgeving) is eigenlijk een afzonderlijke “werkruimte” voor Python waarin je je programma’s draait en afhankelijkheden (libraries) installeert.
+
+Visual Code maakt gebruik van virtuele environments:
+* Een lokaal, geïsoleerd Python-systeem voor één project.
+* Je installeert libraries alleen binnen dat environment.
+
+### Project openen
+Start het Visual Code programma en open met het project van deze workshop. 
+Doe dit door te navigeren naar `File --> Open Folder` en selecteer de map van de workshopbestanden.
+
+Als je de juiste map hebt geselecteerd zie je alleen de *workspace* map met onderliggende mappen en bestanden, zie afbeelding hieronder.
+![image](../images/workspace.png)
+
+### Maken van virtuele environment
+Open de Python-environment selector in Visual Code om de virtuele omgeving te activeren. Kies voor Python 3.12 als je ook andere versies van Python op je systeem hebt geïnstalleerd.
+
+![image](../images/environmet-selector.png)
+
+:::{note}
+- Selecteer Python icoontje aan de linkerkant van Visual Code.
+- Kies `Custom`
+- Bevestig de locatie `.venv`.
+- Skip package installation
+:::
+
+>Er is nu een map ".venv" in je Project gemaakt
+
+### Installeren van benodigde externe libraries
+Open de Visual Code(`Terminal-->New Terminal`) terminal window.
+
+![image](../images/terminal_visual_code.png)
+
+>Controleer of de regel waarop je een commando kunt uitvoeren begint met (.venv). Zo niet sluit Visual Code af en start het programma weer opnieuw.
+
+Je kunt nu de externe libraries installeren met het volgende commando
+```bash
+pip install -r .\requirements.txt
+```
+
+Hierna is de programmeeromgeving gereed voor gebruik. 😃Happy coding !!!
+

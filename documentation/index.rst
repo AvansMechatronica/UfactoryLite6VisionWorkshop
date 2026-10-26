@@ -18,13 +18,16 @@ Workshop Vision Driven Robotics
 
    documentation/overview.md
    documentation/install.md
-   documentation/real_robot.md
+   documentation/setup.md
    documentation/assignment_1.md
-   documentation/examples.md
-   documentation/faq.md
+   documentation/assignment_2.md
+   documentation/examples_README.md
+   documentation/tools_README.md
+   documentation/xarm_support_README.md
+   documentation/vision_README.md
    documentation/xarm_api.md
    documentation/teacher_manual.md
-
+   documentation/faq.md
 
 
 License
