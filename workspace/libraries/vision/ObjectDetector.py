@@ -69,7 +69,7 @@ class ObjectDetector:
 
         # Extract working area image from markers
         im_work = extract_img_workspace(img, workspace_ratio=self._workspace_ratio)
-        #cv2.imshow("Work", im_work)
+        cv2.imshow("Work", im_work)
         if im_work is None:  # Case where working area is not found
             status = False#CommandStatus.MARKERS_NOT_FOUND
             print("Vision Node - Markers Not Found !")

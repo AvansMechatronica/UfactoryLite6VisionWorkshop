@@ -39,7 +39,7 @@ def main():
     moveToJointAngles(robot, home_joint_angles)
 
     camera = usbCamera(camera_index)
-    camera.set_brightness(2.0)
+    camera.set_brightness(1.0)
     camera.set_contrast(1.0)
     camera.set_saturation(1.0)
 
@@ -62,12 +62,15 @@ def main():
             observation_pose.moveTo(robot)
 
             image = camera.take_photo()
+            found, im_markers = draw_markers(image, workspace_ratio=1.0)
+            print("Markers found:", found)
+            cv2.imshow("Markers debug", im_markers)
 
             print("Back to home pose")
             moveToJointAngles(robot, home_joint_angles)
             
             detector = ObjectDetector(
-                obj_type=ObjectType.ANY, obj_color=ColorHSVPrime.RED,
+                obj_type=ObjectType.ANY, obj_color=ColorHSV.RED,
                 workspace_ratio=1.0,
                 ret_image_bool=True,
             )
@@ -85,8 +88,10 @@ def main():
                     #realword_pose = workspace.get_pose(result_pose.x, result_pose.y, result_pose.yaw)
                     #print(realword_pose)
             
-            cv2.waitKey(1)
-            time.sleep(1)
+            cv2.imshow("Camera", image)
+            print("Press any key in an image window to continue")
+            cv2.waitKey(0)  # keeps the windows responsive
+            cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":
