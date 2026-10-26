@@ -41,8 +41,9 @@ print(upload_url)
 video = cv.VideoCapture(0)
 
 # Check if camera opened successfully
-if (video.isOpened()):
-    print("successfully opening video stream or file")
+if not video.isOpened():
+    raise SystemExit("Cannot open camera with index 0")
+print("successfully opening video stream or file")
 
 
 # Infer via the Roboflow Infer API and return the result
@@ -74,11 +75,10 @@ def infer():
     return image
 
 
-# Main loop; infers sequentially until you press "q"
+# Main loop; infers sequentially until you press any key or close the window
 while video.isOpened():
-    # On "q" keypress, exit
-    key = cv.waitKey(5)
-    if key == ord("q"):
+    # On any keypress, exit
+    if cv.waitKey(5) != -1:
         break
 
     # Synchronously get a prediction from the Roboflow Infer API
@@ -86,5 +86,10 @@ while video.isOpened():
     # And display the inference results
     cv.imshow('image', image)
 
+    # window closed with the X button
+    if cv.getWindowProperty('image', cv.WND_PROP_VISIBLE) < 1:
+        break
+
 # Release resources when finished
 video.release()
+cv.destroyAllWindows()

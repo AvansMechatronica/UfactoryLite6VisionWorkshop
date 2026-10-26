@@ -4,4 +4,7 @@ numpy
 opencv-python
 Pillow
 easygui
-
+torch
+ultralytics
+roboflow
+pandas

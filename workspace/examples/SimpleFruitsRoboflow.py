@@ -11,10 +11,18 @@ project = rf.workspace().project("simplefruits")
 model = project.version(1).model
 
 
+camera_index = 0
+
 # define a video capture object
-vid = cv2.VideoCapture(1)
+vid = cv2.VideoCapture(camera_index)
+if not vid.isOpened():
+    raise SystemExit(f"Cannot open camera with index {camera_index}")
+
 while(True):
     ret, frame = vid.read()
+    if not ret:
+        print("Could not read a frame from the camera")
+        break
     cv2.imshow('Original', frame)
     image = frame
 
@@ -41,10 +49,14 @@ while(True):
             thickness=2
         )
     cv2.imshow('predictions', image)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(1) != -1:
+        break
+    # window closed with the X button
+    if any(cv2.getWindowProperty(name, cv2.WND_PROP_VISIBLE) < 1 for name in ('Original', 'predictions')):
         break
 # After the loop release the cap object
 vid.release()
+cv2.destroyAllWindows()
 
 # visualize your prediction
 # model.predict("your_image.jpg", confidence=40, overlap=30).save("prediction.jpg")

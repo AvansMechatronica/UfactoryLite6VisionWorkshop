@@ -6,6 +6,9 @@ import numpy as np
 import cv2
 #import pafy
 import time
+import os
+
+MODEL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'support', 'SimpleFruitsv1iyolov5pytorch.pt')
 
 #  Run these commands in root of project:
 # git clone https://github.com/ultralytics/yolov5.git
@@ -32,7 +35,7 @@ class ObjectDetection:
         Loads Yolo5 model from pytorch hub.
         :return: Trained Pytorch model.
         """
-        model = torch.hub.load('ultralytics/yolov5', 'custom', path='support/SimpleFruitsv1iyolov5pytorch.pt',
+        model = torch.hub.load('ultralytics/yolov5', 'custom', path=MODEL_PATH,
                        force_reload=False)
 
         model.conf = 0.50  # confidence threshold (0-1)
@@ -105,8 +108,15 @@ class ObjectDetection:
             cv2.putText(frame, f'FPS: {int(fps)}', (20, 70), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 255, 0), 2)
             cv2.imshow("img", frame)
 
-            if cv2.waitKey(1) & 0xFF == ord('q'):
+            # waitKey returns -1 when no key is pressed
+            if cv2.waitKey(1) != -1:
                 break
+            # window closed with the X button
+            if cv2.getWindowProperty("img", cv2.WND_PROP_VISIBLE) < 1:
+                break
+
+        cap.release()
+        cv2.destroyAllWindows()
 
 
 # Create a new object and execute.
