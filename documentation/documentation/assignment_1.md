@@ -58,7 +58,9 @@ robot.set_joint_position(0, 0, 0, 0, 0, 0)
 We noemen deze methode het bewegen naar een positie in de gewrichtsruimte.
 
 ## Opdracht 1.3: Bewegen naar posities
-Teken een voorwerp(welek past in de grippe van de robot) af op de workspace(wit vel onder de robot). Bepaal vervolgens de coördinaten van een positie boven het voorwerp waar de robot naartoe moet bewegen. Je kunt hierbij gebruik maken van een tool `print_robot_position.py` om de huidige positie van de robot te printen en de coördinaten te bepalen. Wanneer deze tool gestart is kun je de robot handmatig verplaatsen en de coördinaten aflezen om de gewenste positie te bepalen.
+Teken een voorwerp(welke past in de grippe van de robot) af op de workspace(wit vel onder de robot). 
+![image](../images/marked_brick.jpg)
+Bepaal vervolgens de coördinaten van een positie boven het voorwerp waar de robot naartoe moet bewegen. Je kunt hierbij gebruik maken van een tool `print_robot_position.py` om de huidige positie van de robot te printen en de coördinaten te bepalen. Wanneer deze tool gestart is kun je de robot handmatig verplaatsen en de coördinaten aflezen om de gewenste positie te bepalen.
 
 Maak een programma dat de robot naar de eerder bepaalde positie boven het voorwerp beweegt met behulp van de functie `robot.set_position(x, y, z, roll, pitch, yaw)`. Zorg ervoor dat de `z`-waarde hoog genoeg is zodat de robot niet tegen het voorwerp botst. We noemen dit de pick-positie.
 
@@ -91,11 +93,17 @@ for pick, drop in zip(pick_positions, drop_positions):
 ``` 
 
 ## Opdracht 1.6: Bouwen van een muur
-Druk de workspace `RobotVisionWorkspaceBricks2Wall.pdf` af en bepaal de posities van de stenen die gebruikt moeten worden om de muur te bouwen. Gebruik vervolgens de eerder beschreven methoden om de robot de stenen op te laten pakken en op de juiste plek te plaatsen om een muur te bouwen.
+Druk de workspace `RobotVisionWorkspaceBricks2Wall.pdf` af en bepaal de posities van de stenen die gebruikt moeten worden om de muur te bouwen. 
+![image](../images/allignd_bricks.jpg)Gebruik vervolgens de eerder beschreven methoden om de robot de stenen op te laten pakken en op de juiste plek te plaatsen om een muur te bouwen.
 
 Het programma dient efficiënt de stenen op te pakken en op de juiste plek te plaatsen om een muur te bouwen. Dus alleen de postie van de eerste steen hoeft handmatig bepaald te worden, de rest kan relatief ten opzichte van de eerste steen worden berekend.
+![image](../images/complete_wall.jpg)
 
 :::{note}
 
 Het `RobotVisionWorkspaceBricks2Wall.pdf` bestand kun je vinden in de `support/workspace` map van deze workshop. In de `support/objects` map vind je ook bestanden waarmee je stenen(bricks) kunt maken met behulp van een 3d-printer.
 :::
+
+### Opdracht 1.6.1: Uitdaging
+maak een programma dat een muur bouwt volgens onderstaande afbeelding.
+![image](../images/extended_wall.jpg)
