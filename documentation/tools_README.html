@@ -1,0 +1,217 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="nl" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools &mdash; Workshop Vision Driven Robotics 0.1 documentatie</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=a57088fb"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/translations.js?v=e4d38c6a"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="xarm_support-bibliotheek" href="xarm_support_README.html" />
+    <link rel="prev" title="Voorbeelden" href="examples_README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Workshop Vision Driven Robotics
+              <img src="../_static/avans-hogeschool-logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Zoek in documentatie" aria-label="Zoek in documentatie" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigatiemenu">
+              <p class="caption" role="heading"><span class="caption-text">Inhoudsopgave:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installatie van de software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Aansluiten van de uFactory Lite6 robot op de development-computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment_1.html">Opdracht 1: Part picking and placing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment_2.html">Opdracht 2: Part picking and placing with vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_README.html">Voorbeelden</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#robot">Robot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#print-robot-position-py"><code class="docutils literal notranslate"><span class="pre">print_robot_position.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#print-robot-joints-py"><code class="docutils literal notranslate"><span class="pre">print_robot_joints.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calibrate-workspace-py"><code class="docutils literal notranslate"><span class="pre">calibrate_workspace.py</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#camera">Camera</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#captureimage-py"><code class="docutils literal notranslate"><span class="pre">captureImage.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hsvfilterfromstream-py"><code class="docutils literal notranslate"><span class="pre">hsvFilterFromStream.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hsvfilterfromfile-py"><code class="docutils literal notranslate"><span class="pre">hsvFilterFromFile.py</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="xarm_support_README.html">xarm_support-bibliotheek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vision_README.html">Vision-bibliotheek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xarm_api.html">xArm API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teacher_manual.html">Docentenhandleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Veelgestelde vragen</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Navigatiemenu voor mobiel" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Workshop Vision Driven Robotics</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Paginanavigatie">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/documentation/tools_README.md.txt" rel="nofollow"> Bekijk paginabron</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="tools">
+<h1>Tools<a class="headerlink" href="#tools" title="Link to this heading"></a></h1>
+<p>Hulpprogramma’s voor de UFactory Lite 6 vision workshop. Start de scripts vanuit de map <code class="docutils literal notranslate"><span class="pre">workspace</span></code>, met de virtuele omgeving (<code class="docutils literal notranslate"><span class="pre">.venv</span></code>) actief:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">tools</span><span class="p">\&lt;</span><span class="n">scriptnaam</span><span class="p">&gt;.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Voor de robotscripts staat het IP-adres in het script (standaard <code class="docutils literal notranslate"><span class="pre">192.168.1.193</span></code>). Pas dit aan naar het adres van jouw robot.</p>
+<section id="robot">
+<h2>Robot<a class="headerlink" href="#robot" title="Link to this heading"></a></h2>
+<section id="print-robot-position-py">
+<h3><code class="docutils literal notranslate"><span class="pre">print_robot_position.py</span></code><a class="headerlink" href="#print-robot-position-py" title="Link to this heading"></a></h3>
+<p>Zet de robot in mode 2 (handmatig verplaatsen), state 0, en print elke 0,5 seconde de TCP-positie: <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, <code class="docutils literal notranslate"><span class="pre">Z</span></code> in mm en <code class="docutils literal notranslate"><span class="pre">roll</span></code>, <code class="docutils literal notranslate"><span class="pre">pitch</span></code>, <code class="docutils literal notranslate"><span class="pre">yaw</span></code> in graden. Beweeg de robot met de hand om de waarden te zien veranderen. Druk op een willekeurige toets om te stoppen; de verbinding wordt dan netjes gesloten.</p>
+</section>
+<section id="print-robot-joints-py">
+<h3><code class="docutils literal notranslate"><span class="pre">print_robot_joints.py</span></code><a class="headerlink" href="#print-robot-joints-py" title="Link to this heading"></a></h3>
+<p>Hetzelfde als hierboven, maar print de gewrichtshoeken <code class="docutils literal notranslate"><span class="pre">J1</span></code> t/m <code class="docutils literal notranslate"><span class="pre">J6</span></code> in graden. Ook hier stopt het programma met een willekeurige toets.</p>
+</section>
+<section id="calibrate-workspace-py">
+<h3><code class="docutils literal notranslate"><span class="pre">calibrate_workspace.py</span></code><a class="headerlink" href="#calibrate-workspace-py" title="Link to this heading"></a></h3>
+<p>Kalibreert het werkvlak aan de hand van vier markers:</p>
+<ol class="arabic simple">
+<li><p>De robot gaat naar de home- en observatiepositie en maakt een foto van het werkvlak.</p></li>
+<li><p>Vervolgens gaat de robot in mode 2, zodat je hem met de hand kunt bewegen.</p></li>
+<li><p>Beweeg het kalibratiegereedschap naar marker 1 t/m 4 en druk telkens op Enter om de positie vast te leggen. Tijdens het bewegen verschijnt een waarschuwing als roll/pitch te veel afwijken van 180°/0°.</p></li>
+<li><p>De posities worden opgeslagen in <code class="docutils literal notranslate"><span class="pre">workspace.json</span></code>.</p></li>
+</ol>
+<p>Instellingen bovenin het script: <code class="docutils literal notranslate"><span class="pre">robot_ip</span></code> en <code class="docutils literal notranslate"><span class="pre">camera_index</span></code>.</p>
+</section>
+</section>
+<section id="camera">
+<h2>Camera<a class="headerlink" href="#camera" title="Link to this heading"></a></h2>
+<section id="captureimage-py">
+<h3><code class="docutils literal notranslate"><span class="pre">captureImage.py</span></code><a class="headerlink" href="#captureimage-py" title="Link to this heading"></a></h3>
+<p>Maakt foto’s met de USB-camera (<code class="docutils literal notranslate"><span class="pre">camera_index</span></code>, standaard 0). Menu:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Toets</p></th>
+<th class="head"><p>Actie</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p</span></code></p></td>
+<td><p>Foto nemen</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+<td><p>Laatste foto opslaan (bestandskiezer)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">q</span></code></p></td>
+<td><p>Afsluiten</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hsvfilterfromstream-py">
+<h3><code class="docutils literal notranslate"><span class="pre">hsvFilterFromStream.py</span></code><a class="headerlink" href="#hsvfilterfromstream-py" title="Link to this heading"></a></h3>
+<p>Bepaalt HSV-drempelwaarden op het live camerabeeld. Met de schuifbalken stel je Hue, Saturation en Value (laag/hoog) in; het gefilterde resultaat wordt direct getoond. Met “Revers HUE” kun je rode kleuren filteren, omdat rood aan beide uiteinden van de Hue-schaal ligt. Druk op <code class="docutils literal notranslate"><span class="pre">q</span></code> om te stoppen.</p>
+</section>
+<section id="hsvfilterfromfile-py">
+<h3><code class="docutils literal notranslate"><span class="pre">hsvFilterFromFile.py</span></code><a class="headerlink" href="#hsvfilterfromfile-py" title="Link to this heading"></a></h3>
+<p>Zelfde HSV-filter, maar op een afbeelding uit een bestand. Bij het starten kies je een afbeelding. Toetsen:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Toets</p></th>
+<th class="head"><p>Actie</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">l</span></code></p></td>
+<td><p>Nieuwe afbeelding laden</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">q</span></code></p></td>
+<td><p>Afsluiten</p></td>
+</tr>
+</tbody>
+</table>
+<p>Sluiten van het filtervenster stopt het programma ook.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Voettekst">
+        <a href="examples_README.html" class="btn btn-neutral float-left" title="Voorbeelden" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Vorige</a>
+        <a href="xarm_support_README.html" class="btn btn-neutral float-right" title="xarm_support-bibliotheek" accesskey="n" rel="next">Volgende <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Gerard Harkema.</p>
+  </div>
+
+  Gebouwd met <a href="https://www.sphinx-doc.org/">Sphinx</a> met een
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thema</a>
+    geleverd door <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

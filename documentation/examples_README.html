@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="nl" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voorbeelden &mdash; Workshop Vision Driven Robotics 0.1 documentatie</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=a57088fb"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/translations.js?v=e4d38c6a"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Tools" href="tools_README.html" />
+    <link rel="prev" title="Opdracht 2: Part picking and placing with vision" href="assignment_2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Workshop Vision Driven Robotics
+              <img src="../_static/avans-hogeschool-logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Zoek in documentatie" aria-label="Zoek in documentatie" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigatiemenu">
+              <p class="caption" role="heading"><span class="caption-text">Inhoudsopgave:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installatie van de software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Aansluiten van de uFactory Lite6 robot op de development-computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment_1.html">Opdracht 1: Part picking and placing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment_2.html">Opdracht 2: Part picking and placing with vision</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Voorbeelden</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#robot">Robot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ufactorylite6demo-py"><code class="docutils literal notranslate"><span class="pre">UFactoryLite6Demo.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#servoangledemo-py"><code class="docutils literal notranslate"><span class="pre">ServoAngleDemo.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#positiondemo-py"><code class="docutils literal notranslate"><span class="pre">PositionDemo.py</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#camera-en-markers">Camera en markers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ufactorycameratest-py"><code class="docutils literal notranslate"><span class="pre">UFactoryCameraTest.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#markertest-py"><code class="docutils literal notranslate"><span class="pre">markerTest.py</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#objectherkenning">Objectherkenning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#objectdetectortest-py"><code class="docutils literal notranslate"><span class="pre">ObjectDetectorTest.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simplefruits-py-simplefruitsroboflow-py"><code class="docutils literal notranslate"><span class="pre">SimpleFruits.py</span></code>, <code class="docutils literal notranslate"><span class="pre">SimpleFruitsRoboflow.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simplefruitsyolov5-py"><code class="docutils literal notranslate"><span class="pre">SimpleFruitsYoloV5.py</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#werkvlak">Werkvlak</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workspacetestreletivepose-py"><code class="docutils literal notranslate"><span class="pre">WorkspaceTestReletivePose.py</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transformaties-en-inverse-kinematica">Transformaties en inverse kinematica</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#transfersandinversekinematica-translationinversekinematica-py"><code class="docutils literal notranslate"><span class="pre">TransfersAndInverseKinematica\translationinversekinematica.py</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#overige-bestanden">Overige bestanden</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools_README.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xarm_support_README.html">xarm_support-bibliotheek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vision_README.html">Vision-bibliotheek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xarm_api.html">xArm API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teacher_manual.html">Docentenhandleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Veelgestelde vragen</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Navigatiemenu voor mobiel" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Workshop Vision Driven Robotics</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Paginanavigatie">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Voorbeelden</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/documentation/examples_README.md.txt" rel="nofollow"> Bekijk paginabron</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="voorbeelden">
+<h1>Voorbeelden<a class="headerlink" href="#voorbeelden" title="Link to this heading"></a></h1>
+<p>Voorbeeldprogramma’s voor de UFactory Lite 6 vision workshop. Start de scripts vanuit de map <code class="docutils literal notranslate"><span class="pre">workspace</span></code>, met de virtuele omgeving (<code class="docutils literal notranslate"><span class="pre">.venv</span></code>) actief:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">examples</span><span class="p">\&lt;</span><span class="n">scriptnaam</span><span class="p">&gt;.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Voor de robotvoorbeelden staat het IP-adres in het script (<code class="docutils literal notranslate"><span class="pre">robot_ip</span></code>, standaard <code class="docutils literal notranslate"><span class="pre">192.168.1.193</span></code>) en de camera in <code class="docutils literal notranslate"><span class="pre">camera_index</span></code>. Pas deze aan naar jouw opstelling.</p>
+<blockquote>
+<div><p><strong>Let op:</strong> de robot beweegt zelfstandig naar de home-, observatie- en rustpositie. Zorg dat het werkgebied vrij is en houd de noodstop binnen bereik.</p>
+</div></blockquote>
+<section id="robot">
+<h2>Robot<a class="headerlink" href="#robot" title="Link to this heading"></a></h2>
+<section id="ufactorylite6demo-py">
+<h3><code class="docutils literal notranslate"><span class="pre">UFactoryLite6Demo.py</span></code><a class="headerlink" href="#ufactorylite6demo-py" title="Link to this heading"></a></h3>
+<p>Eenvoudige demo: de robot beweegt achtereenvolgens naar de home-, linker- en rechterpositie en terug naar home. Daarna wordt de vacuümgripper 2 seconden aangezet (oppakken) en weer uitgezet (loslaten).</p>
+</section>
+<section id="servoangledemo-py">
+<h3><code class="docutils literal notranslate"><span class="pre">ServoAngleDemo.py</span></code><a class="headerlink" href="#servoangledemo-py" title="Link to this heading"></a></h3>
+<p>Laat zien hoe <code class="docutils literal notranslate"><span class="pre">robot.set_servo_angle</span></code> werkt, met lage snelheid (20°/s): alle zes gewrichten tegelijk (home), één gewricht met <code class="docutils literal notranslate"><span class="pre">servo_id</span></code>, meerdere gewrichten tegelijk, en hoeken in radialen met <code class="docutils literal notranslate"><span class="pre">is_radian=True</span></code>. Daarna worden de huidige hoeken geprint en gaat de robot terug naar home. Zorg dat het werkgebied vrij is.</p>
+</section>
+<section id="positiondemo-py">
+<h3><code class="docutils literal notranslate"><span class="pre">PositionDemo.py</span></code><a class="headerlink" href="#positiondemo-py" title="Link to this heading"></a></h3>
+<p>Laat zien hoe <code class="docutils literal notranslate"><span class="pre">robot.set_position</span></code> werkt, met lage snelheid (50 mm/s): een absolute pose (x, y, z, roll, pitch, yaw), alleen een deel van de waarden wijzigen, relatieve bewegingen met <code class="docutils literal notranslate"><span class="pre">relative=True</span></code> (zijwaarts, omlaag en draaien om yaw) en terug naar de startpose. Na elke stap wordt de positie geprint. Zorg dat het werkgebied vrij is.</p>
+</section>
+</section>
+<section id="camera-en-markers">
+<h2>Camera en markers<a class="headerlink" href="#camera-en-markers" title="Link to this heading"></a></h2>
+<section id="ufactorycameratest-py">
+<h3><code class="docutils literal notranslate"><span class="pre">UFactoryCameraTest.py</span></code><a class="headerlink" href="#ufactorycameratest-py" title="Link to this heading"></a></h3>
+<p>Test de combinatie van robot en camera. De robot gaat naar home, naar de observatiepositie, maakt een foto en gaat terug naar home. Daarna kun je via een menu kiezen:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Toets</p></th>
+<th class="head"><p>Actie</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">o</span></code></p></td>
+<td><p>Naar observatiepositie (met hulpkruis in het camerabeeld)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">r</span></code></p></td>
+<td><p>Naar rustpositie</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p</span></code></p></td>
+<td><p>Foto nemen en markers tonen</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">q</span></code></p></td>
+<td><p>Terug naar home en afsluiten</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="markertest-py">
+<h3><code class="docutils literal notranslate"><span class="pre">markerTest.py</span></code><a class="headerlink" href="#markertest-py" title="Link to this heading"></a></h3>
+<p>De robot gaat naar de observatiepositie, maakt een foto en gaat terug naar home. In de foto worden de markers van het werkvlak gedetecteerd. Het venster <code class="docutils literal notranslate"><span class="pre">Crop</span></code> toont het uitgesneden werkvlak en <code class="docutils literal notranslate"><span class="pre">Marker</span></code> toont de gedetecteerde markers. Menu: <code class="docutils literal notranslate"><span class="pre">p</span></code> foto nemen, <code class="docutils literal notranslate"><span class="pre">q</span></code> afsluiten.</p>
+</section>
+</section>
+<section id="objectherkenning">
+<h2>Objectherkenning<a class="headerlink" href="#objectherkenning" title="Link to this heading"></a></h2>
+<section id="objectdetectortest-py">
+<h3><code class="docutils literal notranslate"><span class="pre">ObjectDetectorTest.py</span></code><a class="headerlink" href="#objectdetectortest-py" title="Link to this heading"></a></h3>
+<p>Zoals <code class="docutils literal notranslate"><span class="pre">markerTest.py</span></code>, maar op de foto wordt een rood object gezocht met <code class="docutils literal notranslate"><span class="pre">ObjectDetector</span></code> (HSV-filter). Positie, type en kleur van het object worden geprint en het resultaat wordt getoond in het venster <code class="docutils literal notranslate"><span class="pre">Result</span></code>. Menu: <code class="docutils literal notranslate"><span class="pre">p</span></code> foto nemen, <code class="docutils literal notranslate"><span class="pre">q</span></code> afsluiten.</p>
+</section>
+<section id="simplefruits-py-simplefruitsroboflow-py">
+<h3><code class="docutils literal notranslate"><span class="pre">SimpleFruits.py</span></code>, <code class="docutils literal notranslate"><span class="pre">SimpleFruitsRoboflow.py</span></code><a class="headerlink" href="#simplefruits-py-simplefruitsroboflow-py" title="Link to this heading"></a></h3>
+<p>Fruitherkenning met een model van Roboflow (<code class="docutils literal notranslate"><span class="pre">simplefruits</span></code>) op het livebeeld van de camera. <code class="docutils literal notranslate"><span class="pre">SimpleFruits.py</span></code> stuurt elk beeld naar de Roboflow-webservice en toont het resultaat; <code class="docutils literal notranslate"><span class="pre">SimpleFruitsRoboflow.py</span></code> tekent de gevonden objecten zelf in het beeld. Stoppen kan met een willekeurige toets (met het beeldvenster actief) of door op het kruisje van een venster te klikken. Beide scripts zijn nog niet getest.</p>
+</section>
+<section id="simplefruitsyolov5-py">
+<h3><code class="docutils literal notranslate"><span class="pre">SimpleFruitsYoloV5.py</span></code><a class="headerlink" href="#simplefruitsyolov5-py" title="Link to this heading"></a></h3>
+<p>Fruitherkenning met een lokaal YOLOv5-model (<code class="docutils literal notranslate"><span class="pre">support\SimpleFruitsv1iyolov5pytorch.pt</span></code>) op het livebeeld, inclusief weergave van de FPS. Druk op een willekeurige toets (met het beeldvenster actief) of klik op het kruisje van het venster om te stoppen. Dit script is nog niet getest. YOLOv5 moet geïnstalleerd zijn (<code class="docutils literal notranslate"><span class="pre">yolov5</span></code> is aanwezig in de map <code class="docutils literal notranslate"><span class="pre">workspace</span></code>).</p>
+<blockquote>
+<div><p>De Roboflow-scripts bevatten een API-sleutel in de code. Zet deze liever in een omgevingsvariabele en deel hem niet.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="werkvlak">
+<h2>Werkvlak<a class="headerlink" href="#werkvlak" title="Link to this heading"></a></h2>
+<section id="workspacetestreletivepose-py">
+<h3><code class="docutils literal notranslate"><span class="pre">WorkspaceTestReletivePose.py</span></code><a class="headerlink" href="#workspacetestreletivepose-py" title="Link to this heading"></a></h3>
+<p>Leest de kalibratie uit <code class="docutils literal notranslate"><span class="pre">workspace.json</span></code> (gemaakt met <code class="docutils literal notranslate"><span class="pre">tools\calibrate_workspace.py</span></code>) en rekent een positie binnen het werkvlak (x = 0,25, y = 0,25, hoogte 0,2) om naar een robotpositie, die wordt geprint. Het script leest <code class="docutils literal notranslate"><span class="pre">..\workspace.json</span></code>, dus start het vanuit de map <code class="docutils literal notranslate"><span class="pre">examples</span></code>.</p>
+</section>
+</section>
+<section id="transformaties-en-inverse-kinematica">
+<h2>Transformaties en inverse kinematica<a class="headerlink" href="#transformaties-en-inverse-kinematica" title="Link to this heading"></a></h2>
+<section id="transfersandinversekinematica-translationinversekinematica-py">
+<h3><code class="docutils literal notranslate"><span class="pre">TransfersAndInverseKinematica\translationinversekinematica.py</span></code><a class="headerlink" href="#transfersandinversekinematica-translationinversekinematica-py" title="Link to this heading"></a></h3>
+<p>Uitleg-voorbeeld met <code class="docutils literal notranslate"><span class="pre">pytransform3d</span></code> en <code class="docutils literal notranslate"><span class="pre">ikpy</span></code>: transformaties tussen wereld, voetstuk, robot, camera en doos worden opgebouwd en geplot. Daarna worden de gewrichtswaarden berekend met inverse kinematica op basis van <code class="docutils literal notranslate"><span class="pre">Ned.urdf</span></code> (een Niryo Ned-robot, dus niet de Lite 6). Het script moet vanuit zijn eigen map worden gestart, omdat <code class="docutils literal notranslate"><span class="pre">Ned.urdf</span></code> relatief wordt geladen.</p>
+</section>
+</section>
+<section id="overige-bestanden">
+<h2>Overige bestanden<a class="headerlink" href="#overige-bestanden" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bestand</p></th>
+<th class="head"><p>Beschrijving</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cam_intrinsics.yaml</span></code></p></td>
+<td><p>Cameraparameters (intrinsics)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">support\</span></code></p></td>
+<td><p>Getraind YOLOv5-model (<code class="docutils literal notranslate"><span class="pre">.pt</span></code> en <code class="docutils literal notranslate"><span class="pre">.onnx</span></code>) voor de fruitherkenning</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Voettekst">
+        <a href="assignment_2.html" class="btn btn-neutral float-left" title="Opdracht 2: Part picking and placing with vision" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Vorige</a>
+        <a href="tools_README.html" class="btn btn-neutral float-right" title="Tools" accesskey="n" rel="next">Volgende <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Gerard Harkema.</p>
+  </div>
+
+  Gebouwd met <a href="https://www.sphinx-doc.org/">Sphinx</a> met een
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thema</a>
+    geleverd door <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

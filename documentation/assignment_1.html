@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="nl" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opdracht 1: Part picking and placing &mdash; Workshop Vision Driven Robotics 0.1 documentatie</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=a57088fb"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/translations.js?v=e4d38c6a"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Opdracht 2: Part picking and placing with vision" href="assignment_2.html" />
+    <link rel="prev" title="Aansluiten van de uFactory Lite6 robot op de development-computer" href="setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Workshop Vision Driven Robotics
+              <img src="../_static/avans-hogeschool-logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Zoek in documentatie" aria-label="Zoek in documentatie" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigatiemenu">
+              <p class="caption" role="heading"><span class="caption-text">Inhoudsopgave:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installatie van de software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Aansluiten van de uFactory Lite6 robot op de development-computer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Opdracht 1: Part picking and placing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#opdracht-1-1-robot-testen-met-de-webinterface">Opdracht 1.1: Robot testen met de webinterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opdracht-1-2-robot-testen-met-python-programma">Opdracht 1.2: Robot testen met Python programma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opdracht-1-3-bewegen-naar-posities">Opdracht 1.3: Bewegen naar posities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opdracht-1-4-oppakken-van-voorwerpen">Opdracht 1.4: Oppakken van voorwerpen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opdracht-1-5-herhalen-van-het-oppakken">Opdracht 1.5: Herhalen van het oppakken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opdracht-1-6-bouwen-van-een-muur">Opdracht 1.6: Bouwen van een muur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opdracht-1-6-1-uitdaging">Opdracht 1.6.1: Uitdaging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="assignment_2.html">Opdracht 2: Part picking and placing with vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_README.html">Voorbeelden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_README.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xarm_support_README.html">xarm_support-bibliotheek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vision_README.html">Vision-bibliotheek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xarm_api.html">xArm API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teacher_manual.html">Docentenhandleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Veelgestelde vragen</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Navigatiemenu voor mobiel" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Workshop Vision Driven Robotics</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Paginanavigatie">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Opdracht 1: Part picking and placing</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/documentation/assignment_1.md.txt" rel="nofollow"> Bekijk paginabron</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="opdracht-1-part-picking-and-placing">
+<h1>Opdracht 1: Part picking and placing<a class="headerlink" href="#opdracht-1-part-picking-and-placing" title="Link to this heading"></a></h1>
+<section id="opdracht-1-1-robot-testen-met-de-webinterface">
+<h2>Opdracht 1.1: Robot testen met de webinterface<a class="headerlink" href="#opdracht-1-1-robot-testen-met-de-webinterface" title="Link to this heading"></a></h2>
+<p>Controleer of de robot correct is aangesloten en ingeschakeld. Open de webinterface van de robot door in je browser het IP-adres van de robot in te voeren gevolgd door <code class="docutils literal notranslate"><span class="pre">:18333</span></code>. Bijvoorbeeld:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">192.168.1.100</span><span class="p">:</span><span class="mi">18333</span>
+</pre></div>
+</div>
+<p>Vervang <code class="docutils literal notranslate"><span class="pre">192.168.1.100</span></code> door het IP-adres van jouw robot.</p>
+<p>Zorg ervoor dat je de robot kunt besturen via de webinterface voordat je verder gaat met de volgende opdrachten.</p>
+</section>
+<section id="opdracht-1-2-robot-testen-met-python-programma">
+<h2>Opdracht 1.2: Robot testen met Python programma<a class="headerlink" href="#opdracht-1-2-robot-testen-met-python-programma" title="Link to this heading"></a></h2>
+<p>Open in Visual Code het voorbeeldprogramma <code class="docutils literal notranslate"><span class="pre">PositionDemo.py</span></code> en voer het uit om te controleren of de robot correct reageert op de commando’s vanuit het Python programma.</p>
+<div class="admonition note">
+<p class="admonition-title">Notitie</p>
+<p>Het programma zal naar alle waarschijnlijkheid niet goed functioneren omdat het IP-adres van de robot nog niet correct is ingesteld in het programma. Pas het IP-adres aan naar het IP-adres van jouw robot. Zoek in het programma de volgende regel en vervang het IP-adres door het IP-adres van jouw robot:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">robot_ip</span> <span class="o">=</span> <span class="s2">&quot;192.168.1.193&quot;</span>
+</pre></div>
+</div>
+<p>Je zult deze handeling voor elk Python programma dat je gebruikt om de robot te besturen moeten uitvoeren.</p>
+</div>
+<p>Bestudeer het voorbeeldprogramma en let op hoe de commando’s naar de robot worden gestuurd. Probeer vervolgens zelf enkele commando’s aan te passen en uit te voeren om vertrouwd te raken met het besturen van de robot via Python.</p>
+<p>Elk programma bevat in ieder geval de volgende regels:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">robot</span> <span class="o">=</span> <span class="n">XArmAPI</span><span class="p">(</span><span class="n">robot_ip</span><span class="p">)</span>
+<span class="n">robot</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="n">robot</span><span class="o">.</span><span class="n">clean_error</span><span class="p">()</span>
+<span class="n">robot</span><span class="o">.</span><span class="n">motion_enable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">robot</span><span class="o">.</span><span class="n">set_mode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">robot</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>De functies zijn gedocumenteerd in de API documentatie van de XArm robot. Zie <a class="reference internal" href="xarm_api.html"><span class="std std-doc">XArm API documentatie</span></a>.</p>
+<p>Om de robot naar een bepaalde positie te bewegen, kun je de functie <code class="docutils literal notranslate"><span class="pre">robot.set_position(x,</span> <span class="pre">y,</span> <span class="pre">z,</span> <span class="pre">roll,</span> <span class="pre">pitch,</span> <span class="pre">yaw)</span></code> gebruiken. Hierbij zijn <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> en <code class="docutils literal notranslate"><span class="pre">z</span></code> de coördinaten van de positie en <code class="docutils literal notranslate"><span class="pre">roll</span></code>, <code class="docutils literal notranslate"><span class="pre">pitch</span></code> en <code class="docutils literal notranslate"><span class="pre">yaw</span></code> de oriëntatie van het gereedschap. Bijvoorbeeld:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">robot</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We noemen deze methode het bewegen naar een positie in de cartesiaanse ruimte.</p>
+<p>je kunt de robot ook naar een postie d.m.v. joint coördinaten bewegen met de functie <code class="docutils literal notranslate"><span class="pre">robot.set_joint_position(j1,</span> <span class="pre">j2,</span> <span class="pre">j3,</span> <span class="pre">j4,</span> <span class="pre">j5,</span> <span class="pre">j6)</span></code>. Hierbij zijn <code class="docutils literal notranslate"><span class="pre">j1</span></code> tot en met <code class="docutils literal notranslate"><span class="pre">j6</span></code> de hoeken van de gewrichten. Bijvoorbeeld:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">robot</span><span class="o">.</span><span class="n">set_joint_position</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We noemen deze methode het bewegen naar een positie in de gewrichtsruimte.</p>
+</section>
+<section id="opdracht-1-3-bewegen-naar-posities">
+<h2>Opdracht 1.3: Bewegen naar posities<a class="headerlink" href="#opdracht-1-3-bewegen-naar-posities" title="Link to this heading"></a></h2>
+<p>Teken een voorwerp(welke past in de grippe van de robot) af op de workspace(wit vel onder de robot).
+<img alt="image" src="../_images/marked_brick.jpg" />
+Bepaal vervolgens de coördinaten van een positie boven het voorwerp waar de robot naartoe moet bewegen. Je kunt hierbij gebruik maken van een tool <code class="docutils literal notranslate"><span class="pre">print_robot_position.py</span></code> om de huidige positie van de robot te printen en de coördinaten te bepalen. Wanneer deze tool gestart is kun je de robot handmatig verplaatsen en de coördinaten aflezen om de gewenste positie te bepalen.</p>
+<p>Maak een programma dat de robot naar de eerder bepaalde positie boven het voorwerp beweegt met behulp van de functie <code class="docutils literal notranslate"><span class="pre">robot.set_position(x,</span> <span class="pre">y,</span> <span class="pre">z,</span> <span class="pre">roll,</span> <span class="pre">pitch,</span> <span class="pre">yaw)</span></code>. Zorg ervoor dat de <code class="docutils literal notranslate"><span class="pre">z</span></code>-waarde hoog genoeg is zodat de robot niet tegen het voorwerp botst. We noemen dit de pick-positie.</p>
+<p>Bepaal vervolgens een drop-positie, dat is een positie boven de plek waar het voorwerp neergelegd moet worden. Beplaal deze postie in de gewrichtsruimte met de tool <code class="docutils literal notranslate"><span class="pre">print_robot_joints.py</span></code> om de gewrichtshoeken te bepalen. Gebruik vervolgens de functie <code class="docutils literal notranslate"><span class="pre">robot.set_joint_position(j1,</span> <span class="pre">j2,</span> <span class="pre">j3,</span> <span class="pre">j4,</span> <span class="pre">j5,</span> <span class="pre">j6)</span></code> om de robot naar deze positie te bewegen. We noemen dit de drop-positie.</p>
+<p>Laat de robot 1-malig tussen de pick-positie en de drop-positie bewegen. En zorg ervoor det de robot aan het eind in een <code class="docutils literal notranslate"><span class="pre">home</span></code>-positie staat. De home-positie kan bijvoorbeeld worden bereikt met de functie <code class="docutils literal notranslate"><span class="pre">robot.set_joint_position(&lt;zelf</span> <span class="pre">parameters</span> <span class="pre">hier</span> <span class="pre">invullen&gt;)</span></code>.</p>
+</section>
+<section id="opdracht-1-4-oppakken-van-voorwerpen">
+<h2>Opdracht 1.4: Oppakken van voorwerpen<a class="headerlink" href="#opdracht-1-4-oppakken-van-voorwerpen" title="Link to this heading"></a></h2>
+<p>Breid het programma uit zodat de robot het voorwerp kan oppakken. Dit kan bijvoorbeeld door de robot eerst naar de pick-positie te bewegen, vervolgens de gripper te sluiten om het voorwerp vast te grijpen, en daarna naar de drop-positie te bewegen om het voorwerp neer te leggen. Zorg ervoor dat de robot aan het eind weer in de home-positie staat.</p>
+<p>Je kunt de gripper openen en sluiten met de functies <code class="docutils literal notranslate"><span class="pre">robot.set_vacuum_gripper(True)</span></code> en <code class="docutils literal notranslate"><span class="pre">robot.set_vacuum_gripper(False)</span></code>. Bijvoorbeeld:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">robot</span><span class="o">.</span><span class="n">set_vacuum_gripper</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">robot</span><span class="o">.</span><span class="n">set_vacuum_gripper</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="opdracht-1-5-herhalen-van-het-oppakken">
+<h2>Opdracht 1.5: Herhalen van het oppakken<a class="headerlink" href="#opdracht-1-5-herhalen-van-het-oppakken" title="Link to this heading"></a></h2>
+<p>Breid het programma verder uit zodat de robot meerdere voorwerpen kan oppakken en verplaatsen. Zorg ervoor dat de robot telkens terugkeert naar de home-positie na het neerleggen van een voorwerp. Je kunt hiervoor bijvoorbeeld een lijst van pick- en drop-posities bijhouden en een lus gebruiken om de robot door deze posities te laten bewegen.</p>
+<p>Een voorbeeld van hoe je dit kunt doen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pick_positions</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">roll1</span><span class="p">,</span> <span class="n">pitch1</span><span class="p">,</span> <span class="n">yaw1</span><span class="p">),</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">roll2</span><span class="p">,</span> <span class="n">pitch2</span><span class="p">,</span> <span class="n">yaw2</span><span class="p">)]</span>
+<span class="n">drop_positions</span> <span class="o">=</span> <span class="p">[(</span><span class="n">j1_1</span><span class="p">,</span> <span class="n">j2_1</span><span class="p">,</span> <span class="n">j3_1</span><span class="p">,</span> <span class="n">j4_1</span><span class="p">,</span> <span class="n">j5_1</span><span class="p">,</span> <span class="n">j6_1</span><span class="p">),</span> <span class="p">(</span><span class="n">j1_2</span><span class="p">,</span> <span class="n">j2_2</span><span class="p">,</span> <span class="n">j3_2</span><span class="p">,</span> <span class="n">j4_2</span><span class="p">,</span> <span class="n">j5_2</span><span class="p">,</span> <span class="n">j6_2</span><span class="p">)]</span>
+
+<span class="k">for</span> <span class="n">pick</span><span class="p">,</span> <span class="n">drop</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pick_positions</span><span class="p">,</span> <span class="n">drop_positions</span><span class="p">):</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="o">*</span><span class="n">pick</span><span class="p">)</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">set_vacuum_gripper</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">set_joint_position</span><span class="p">(</span><span class="o">*</span><span class="n">drop</span><span class="p">)</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">set_vacuum_gripper</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">set_joint_position</span><span class="p">(</span><span class="o">&lt;</span><span class="n">home_parameters</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="opdracht-1-6-bouwen-van-een-muur">
+<h2>Opdracht 1.6: Bouwen van een muur<a class="headerlink" href="#opdracht-1-6-bouwen-van-een-muur" title="Link to this heading"></a></h2>
+<p>Druk de workspace <code class="docutils literal notranslate"><span class="pre">RobotVisionWorkspaceBricks2Wall.pdf</span></code> af en bepaal de posities van de stenen die gebruikt moeten worden om de muur te bouwen.
+<img alt="image" src="../_images/allignd_bricks.jpg" />Gebruik vervolgens de eerder beschreven methoden om de robot de stenen op te laten pakken en op de juiste plek te plaatsen om een muur te bouwen.</p>
+<p>Het programma dient efficiënt de stenen op te pakken en op de juiste plek te plaatsen om een muur te bouwen. Dus alleen de postie van de eerste steen hoeft handmatig bepaald te worden, de rest kan relatief ten opzichte van de eerste steen worden berekend.
+<img alt="image" src="../_images/complete_wall.jpg" /></p>
+<div class="admonition note">
+<p class="admonition-title">Notitie</p>
+<p>Het <code class="docutils literal notranslate"><span class="pre">RobotVisionWorkspaceBricks2Wall.pdf</span></code> bestand kun je vinden in de <code class="docutils literal notranslate"><span class="pre">support/workspace</span></code> map van deze workshop. In de <code class="docutils literal notranslate"><span class="pre">support/objects</span></code> map vind je ook bestanden waarmee je stenen(bricks) kunt maken met behulp van een 3d-printer.</p>
+</div>
+<section id="opdracht-1-6-1-uitdaging">
+<h3>Opdracht 1.6.1: Uitdaging<a class="headerlink" href="#opdracht-1-6-1-uitdaging" title="Link to this heading"></a></h3>
+<p>maak een programma dat een muur bouwt volgens onderstaande afbeelding.
+<img alt="image" src="../_images/extended_wall.jpg" /></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Voettekst">
+        <a href="setup.html" class="btn btn-neutral float-left" title="Aansluiten van de uFactory Lite6 robot op de development-computer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Vorige</a>
+        <a href="assignment_2.html" class="btn btn-neutral float-right" title="Opdracht 2: Part picking and placing with vision" accesskey="n" rel="next">Volgende <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Gerard Harkema.</p>
+  </div>
+
+  Gebouwd met <a href="https://www.sphinx-doc.org/">Sphinx</a> met een
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thema</a>
+    geleverd door <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
