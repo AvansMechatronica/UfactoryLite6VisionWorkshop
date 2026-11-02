@@ -1,0 +1,296 @@
+solid model_kegel_8mm
+  facet normal 0 0 -1
+    outer loop
+      vertex -10 -6 0
+      vertex 10 6 0
+      vertex 10 -6 0
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -10 -6 0
+      vertex -10 6 0
+      vertex 10 6 0
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex -10 -6 0
+      vertex 10 -6 0
+      vertex 10 -6 12
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex -10 -6 0
+      vertex 10 -6 12
+      vertex -10 -6 12
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 10 -6 0
+      vertex 10 6 0
+      vertex 10 6 12
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 10 -6 0
+      vertex 10 6 12
+      vertex 10 -6 12
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 10 6 0
+      vertex -10 6 0
+      vertex -10 6 12
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 10 6 0
+      vertex -10 6 12
+      vertex 10 6 12
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex -10 6 0
+      vertex -10 -6 0
+      vertex -10 -6 12
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex -10 6 0
+      vertex -10 -6 12
+      vertex -10 6 12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -12 -8 12
+      vertex 12 -8 12
+      vertex 10 -6 12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -12 -8 12
+      vertex 10 -6 12
+      vertex -10 -6 12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 12 -8 12
+      vertex 12 8 12
+      vertex 10 6 12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 12 -8 12
+      vertex 10 6 12
+      vertex 10 -6 12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 12 8 12
+      vertex -12 8 12
+      vertex -10 6 12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 12 8 12
+      vertex -10 6 12
+      vertex 10 6 12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -12 8 12
+      vertex -12 -8 12
+      vertex -10 -6 12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -12 8 12
+      vertex -10 -6 12
+      vertex -10 6 12
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex -12 -8 12
+      vertex 12 -8 12
+      vertex 12 -8 14
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex -12 -8 12
+      vertex 12 -8 14
+      vertex -12 -8 14
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 12 -8 12
+      vertex 12 8 12
+      vertex 12 8 14
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 12 -8 12
+      vertex 12 8 14
+      vertex 12 -8 14
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 12 8 12
+      vertex -12 8 12
+      vertex -12 8 14
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 12 8 12
+      vertex -12 8 14
+      vertex 12 8 14
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex -12 8 12
+      vertex -12 -8 12
+      vertex -12 -8 14
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex -12 8 12
+      vertex -12 -8 14
+      vertex -12 8 14
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -12 -8 14
+      vertex 12 -8 14
+      vertex 6 -6 14
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -12 -8 14
+      vertex 6 -6 14
+      vertex -6 -6 14
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 12 -8 14
+      vertex 12 8 14
+      vertex 6 6 14
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 12 -8 14
+      vertex 6 6 14
+      vertex 6 -6 14
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 12 8 14
+      vertex -12 8 14
+      vertex -6 6 14
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 12 8 14
+      vertex -6 6 14
+      vertex 6 6 14
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -12 8 14
+      vertex -12 -8 14
+      vertex -6 -6 14
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -12 8 14
+      vertex -6 -6 14
+      vertex -6 6 14
+    endloop
+  endfacet
+  facet normal 0.581 0.241 0.777
+    outer loop
+      vertex 6.0 0.0 14.0
+      vertex 4.24 4.24 14.0
+      vertex 0.0 0.0 22.0
+    endloop
+  endfacet
+  facet normal -0.241 0.581 0.777
+    outer loop
+      vertex 4.24 4.24 14.0
+      vertex 0.0 6.0 14.0
+      vertex 0.0 0.0 22.0
+    endloop
+  endfacet
+  facet normal -0.581 0.241 0.777
+    outer loop
+      vertex 0.0 6.0 14.0
+      vertex -4.24 4.24 14.0
+      vertex 0.0 0.0 22.0
+    endloop
+  endfacet
+  facet normal -0.581 -0.241 0.777
+    outer loop
+      vertex -4.24 4.24 14.0
+      vertex -6.0 0.0 14.0
+      vertex 0.0 0.0 22.0
+    endloop
+  endfacet
+  facet normal -0.241 -0.581 0.777
+    outer loop
+      vertex -6.0 0.0 14.0
+      vertex -4.24 -4.24 14.0
+      vertex 0.0 0.0 22.0
+    endloop
+  endfacet
+  facet normal 0.241 -0.581 0.777
+    outer loop
+      vertex -4.24 -4.24 14.0
+      vertex 0.0 -6.0 14.0
+      vertex 0.0 0.0 22.0
+    endloop
+  endfacet
+  facet normal 0.581 -0.241 0.777
+    outer loop
+      vertex 0.0 -6.0 14.0
+      vertex 4.24 -4.24 14.0
+      vertex 0.0 0.0 22.0
+    endloop
+  endfacet
+  facet normal 0.581 0.241 0.777
+    outer loop
+      vertex 4.24 -4.24 14.0
+      vertex 6.0 0.0 14.0
+      vertex 0.0 0.0 22.0
+    endloop
+  endfacet
+endsolid model_kegel_8mm
