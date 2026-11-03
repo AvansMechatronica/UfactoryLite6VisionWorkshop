@@ -47,6 +47,12 @@ De robot gaat naar de observatiepositie, maakt een foto en gaat terug naar home.
 
 Zoals `markerTest.py`, maar op de foto wordt een rood object gezocht met `ObjectDetector` (HSV-filter). Positie, type en kleur van het object worden geprint en het resultaat wordt getoond in het venster `Result`. Menu: `p` foto nemen, `q` afsluiten.
 
+## Pick-and-place
+
+### `PickAndPlace.py`
+
+Zoekt een rood object op het werkvlak, rekent de positie om met de kalibratie uit `workspace.json` en pakt het object met de vacuümgripper op. Daarna wordt het object naar een vaste positie in robotcoördinaten verplaatst. Kalibreer eerst het werkvlak en pas zo nodig de objecthoogte en plaatspositie in het script aan. Na afloop druk je op een toets in een beeldvenster om af te sluiten.
+
 ### `SimpleFruits.py`, `SimpleFruitsRoboflow.py`
 
 Fruitherkenning met een model van Roboflow (`simplefruits`) op het livebeeld van de camera. `SimpleFruits.py` stuurt elk beeld naar de Roboflow-webservice en toont het resultaat; `SimpleFruitsRoboflow.py` tekent de gevonden objecten zelf in het beeld. Stoppen kan met een willekeurige toets (met het beeldvenster actief) of door op het kruisje van een venster te klikken. Beide scripts zijn nog niet getest.

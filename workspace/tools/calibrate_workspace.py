@@ -3,7 +3,7 @@ import sys
 import threading
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # allow running this file directly
 
-# import the opencv library
+# import the opencv libraryn
 import keyboard  # load keyboard package
 from xarm.wrapper import XArmAPI
 
@@ -18,7 +18,7 @@ from libraries.vision.enums import *
 
 robot_ip = '192.168.1.193'  # Replace with your robot's IP address
 
-camera_index = 1
+camera_index = 0
 
 def initialize_camera():
     global camera
