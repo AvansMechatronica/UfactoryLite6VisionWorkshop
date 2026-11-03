@@ -11,28 +11,25 @@ Monteer de camera op de aangegeven positie zoals te zien is in de onderstaande a
 
 
 ### Maken van een workspace
-Druk het bestand `RobotVisionWorkspaceV2.pdf`(map locatie van het bestand) af met een printer en postioneer de workspace voor de robot..
+Druk het bestand `RobotVisionWorkspaceV2.pdf` (te vinden in de map `support/workspace`) af met een printer en positioneer de workspace onder de robot.
 
 ### Testen van de camera met de workspace
-Start het programma `markerTest.py`(map locatie van het bestand)
- en bestudeer de weergegeven afbeeldingen en controleer of alle markers correct worden herkend. Zie onderstaande afbeelding voor een voorbeeld.
+Start het programma `markerTest.py` (map `workspace/examples`, zie ook [examples_README.md](examples_README.md)) en bestudeer de weergegeven afbeeldingen. Controleer of alle markers correct worden herkend. Zie onderstaande afbeelding voor een voorbeeld.
 
 ![image](../images/object_detector_markers.png)
-Als dit niet correct weergeven wordt verschuif dan de workspace zodat alle markers correct worden herkend.
+Als dit niet correct wordt weergegeven, verschuif dan de workspace zodat alle markers correct worden herkend.
 
-Fixeer de workspace(met tape) zodat deze niet meer verschuift.
+Fixeer de workspace (met tape) zodat deze niet meer verschuift.
 
 ## Objectparameters bepalen
 De objectparameters bestaan uit de HSV-kleurwaarden en de vorm van het object.
 
 ### Kleurspectra van de op te pakken objecten bepalen
 Leg een object op de workspace zodat de camera het kan waarnemen.
-Start het tool `hsvFilterFromStream.py`(map locatie van het bestand) en selecteer de juiste kleurwaarden voor elk object.
-Bepaal de juiste kleurwaarden voor elk object en noteer deze waarden. 
-Je kunt dit doen door de sliders te verplaatsen totdat de alleen het object zichtbaar is en de achtergrond wordt uitgesloten.
+Start de tool `hsvFilterFromStream.py` (map `workspace/tools`, zie ook [tools_README.md](tools_README.md)) en bepaal voor elk object de juiste HSV-kleurwaarden. Verplaats de sliders totdat alleen het object zichtbaar is en de achtergrond wordt uitgesloten.
 
 :::{tip}
-Werk zorgvuldig en kijk goed wat er gebuird bij het verplaatsen van de afzonderlijke sliders.
+Werk zorgvuldig en kijk goed wat er gebeurt bij het verplaatsen van elke afzonderlijke slider.
 :::
 
 Noteer deze waarden zorgvuldig, aangezien ze later gebruikt worden voor het herkennen van de objecten.
@@ -41,12 +38,12 @@ Noteer deze waarden zorgvuldig, aangezien ze later gebruikt worden voor het herk
 Verschuif de objecten over de gehele workspace om te controleren of de kleurwaarden consistent worden herkend.
 :::
 
-### Testen van de kleurenspectra's
-Start het programma `ObjectDetectorTest.py`(map locatie van het bestand) om te controleren of de objecten correct worden herkend.
+### Testen van de kleurspectra
+Start het programma `ObjectDetectorTest.py` (map `workspace/examples`) om te controleren of de objecten correct worden herkend.
 
 Je kunt het type object en de kleur aanpassen in de code om te testen of de objecten correct worden herkend.
 
-  - Zoek de volgend codefragment in `ObjectDetectorTest.py` en pas het aan om het gewenste object en kleur te testen.
+Zoek het volgende codefragment in `ObjectDetectorTest.py` en pas het aan om het gewenste object en kleur te testen.
 
 ```python
 detector = ObjectDetector(
@@ -56,14 +53,14 @@ detector = ObjectDetector(
     )
 ```
 
-De volgend `obj_type` zijn gedefineerd
+De volgende `obj_type`-waarden zijn gedefinieerd (zie `libraries/vision/enums.py`):
 ```python
 class ObjectType:
     SQUARE = 4
     CIRCLE = -1
     ANY = 0
 ```
-De volgende `obj_color` zijn gedefineerd
+De volgende `obj_color`-waarden zijn gedefinieerd:
 ```python
 class ColorHSV:
     """
@@ -74,7 +71,7 @@ class ColorHSV:
     GREEN = [40, 60, 75], [85, 255, 255], False
     ANY = [0, 50, 100], [179, 255, 255], False
 ```
-Je kunt een eigen kleurwaarden gebruiken door een tuple van de vorm `([MIN_H, MIN_S, MIN_V], [MAX_H, MAX_S, MAX_V], Invert_Hue)` te gebruiken. Zie hieronder.
+Je kunt ook eigen kleurwaarden gebruiken door een tuple van de vorm `([MIN_H, MIN_S, MIN_V], [MAX_H, MAX_S, MAX_V], Invert_Hue)` op te geven. Zie het voorbeeld hieronder.
 
 ```python
 detector = ObjectDetector(
@@ -87,21 +84,21 @@ detector = ObjectDetector(
 In onderstaande afbeelding kun je zien hoe een object wordt herkend op basis van de kleurwaarden die je hebt ingesteld.
 ![image](../images/object_detector_results.png)
 
-De waarden die de object detecor geeft zijn relatief in % t.o.v. mark 1 in de workspace. Mark 1 dient als referentiepunt voor de kalibratie van de workspace. Later worden deze wardes omgerekend naar absolute coördinaten in de workspace (ten opzichte van de robot).
+De waarden die de objectdetector geeft zijn relatief, in % t.o.v. marker 1 in de workspace. Marker 1 dient als referentiepunt voor de kalibratie van de workspace. Later worden deze waarden omgerekend naar absolute coördinaten in de workspace (ten opzichte van de robot).
 
 ## Kalibratie van de workspace
-Om de workspace correct te kalibreren, gebruik je het script `calibrate_workspace.py`. Dit script helpt bij het instellen van de referentiepunten in de workspace zodat de objectdetector de positie van objecten nauwkeurig kan bepalen.
+Om de workspace correct te kalibreren, gebruik je het script `calibrate_workspace.py` (map `workspace/tools`, zie ook [tools_README.md](tools_README.md)). Dit script helpt bij het instellen van de referentiepunten in de workspace zodat de objectdetector de positie van objecten nauwkeurig kan bepalen.
 
 Plaats in de gripper van de robot een kalibratietool, zie afbeelding hieronder.
 
 ![image](../images/calibarion_tool.jpg)
 
 Voer het script `calibrate_workspace.py` uit om de kalibratie van de workspace te starten. Het script zal je begeleiden bij het instellen van de referentiepunten.
-Zorg dat de je nauwkeurig de markers "aanwijst" met de kalibratietool. De kalibratie tool dient loodrecht te worden gehouden tijdens het aanwijzen van de markers, het programma zal aangeven als dit niet correct gebeurt.
+Zorg dat je de markers nauwkeurig "aanwijst" met de kalibratietool. De kalibratietool dient loodrecht te worden gehouden tijdens het aanwijzen van de markers; het programma geeft een waarschuwing als dit niet correct gebeurt.
 
 ![image](../images/calibration_point.jpg)
 
-Na het succesvol kalibreren van de workspace wordt een json-bestand aangemaakt met de kalibratiegegevens van de workspace. Een voorbeeld van de inhoud van dit bestand is hieronder weergegeven.
+Na het succesvol kalibreren van de workspace wordt een JSON-bestand (`workspace.json`) aangemaakt met de kalibratiegegevens van de workspace. Een voorbeeld van de inhoud van dit bestand is hieronder weergegeven.
 
 ```json
 {"UpperLeftPose": {"x": 173.642838, "y": -116.241768, "z": 90.18734}, "UpperRightPose": {"x": 172.243362, "y": 128.624191, "z": 88.854294}, "LowerRightPose": {"x": 413.970306, "y": 116.073051, "z": 89.728302}, "LowerLeftPose": {"x": 414.263641, "y": -110.855942, "z": 91.140907}}
@@ -112,10 +109,9 @@ Als de workspace verschoven is, moet je de kalibratie opnieuw uitvoeren om ervoo
 :::
 
 ## Testen van enkelvoudige Pick and Place
-Met het script `PickAndPlace.py` kun je de enkelvoudige Pick and Place-functionaliteit van de robot testen. Het script maakt gebruik van de eerder gekalibreerde workspace en de objectdetector om objecten op te pakken en te verplaatsen naar de gewenste locatie.
-Het script zal de camera gebruiken om het object te detecteren en vervolgens de robot aansturen om het object op te pakken en naar de opgegeven locatie te verplaatsen. Zorg ervoor dat de objecten correct zijn gepositioneerd binnen de gekalibreerde workspace voordat je het script uitvoert.
+Met het script `PickAndPlace.py` (map `workspace/examples`, zie ook [examples_README.md](examples_README.md)) test je de enkelvoudige pick-and-place-functionaliteit van de robot. Het script gebruikt de camera en de objectdetector om een object te herkennen, rekent de positie om naar robotcoördinaten met behulp van de eerder gekalibreerde workspace (`workspace.json`), en stuurt vervolgens de robot aan om het object op te pakken en naar de opgegeven locatie te verplaatsen. Zorg ervoor dat de objecten correct zijn gepositioneerd binnen de gekalibreerde workspace voordat je het script uitvoert.
 
-  - Zoek de volgend codefragment in `PickAndPlace.py` en pas het aan om het gewenste object en kleur te testen.
+Zoek het volgende codefragment in `PickAndPlace.py` en pas het aan om het gewenste object en kleur te testen.
 
 ```python
 detector = ObjectDetector(
@@ -125,22 +121,19 @@ detector = ObjectDetector(
     )
 ```
 
-Bestudeer de werking van het script en probeer te begrijpen hoe de objectdetector en de robot samenwerken om de Pick and Place-taken uit te voeren.
+Bestudeer de werking van het script en probeer te begrijpen hoe de objectdetector en de robot samenwerken om de pick-and-place-taken uit te voeren.
 
 ## Opdracht 2.1
-Maak een programma dat een aantal willekeurige objecten uitsorteert. 
+Maak een programma dat een aantal willekeurige objecten uitsorteert.
 - Kleur: Sorteer de objecten op basis van hun kleur.
-- Type: Sorteer de objecten op basis van hun type (bijvoorbeeld blokken, cilinders, enz.).
+- Vorm: Sorteer de objecten op basis van hun vorm (bijvoorbeeld vierkant of rond, zie de klasse `ObjectType` in `libraries/vision/enums.py`).
 
-Het programma moet de objecten detecteren met behulp van de camera en vervolgens de robot aansturen om de objecten naar de juiste locaties te verplaatsen. je kunt hiervoor het script `PickAndPlace.py` als basis gebruiken en aanpassen aan de specifieke eisen van de opdracht.
+Het programma moet de objecten detecteren met behulp van de camera en vervolgens de robot aansturen om de objecten naar de juiste locaties te verplaatsen. Je kunt hiervoor het script `PickAndPlace.py` als basis gebruiken en aanpassen aan de specifieke eisen van de opdracht.
 
-
+Hieronder enkele voorbeeldafbeeldingen van een pick-and-place-opstelling:
 
 ![image](../images/gepositioneerde_objecten.jpg)
 
-
 ![image](../images/object_detector_camera.png)
-
-
 
 ![image](../images/object_detector_workspace.png)
