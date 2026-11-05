@@ -32,6 +32,13 @@ Start de tool `hsvFilterFromStream.py` (map `workspace/tools`, zie ook [tools_RE
 Werk zorgvuldig en kijk goed wat er gebeurt bij het verplaatsen van elke afzonderlijke slider.
 :::
 
+Hieronder is een voorbeeld voor de kleur rood weergegeven.
+![image](../images/hsv_source_image.png)
+  - Orgineel beeld
+
+![image](../images/hsv_sliders_red.png)
+  - Slider instellingen
+
 Noteer deze waarden zorgvuldig, aangezien ze later gebruikt worden voor het herkennen van de objecten.
 
 #### Voorbeeld-
@@ -48,10 +55,15 @@ Zoek het volgende codefragment in `ObjectDetectorTest.py` en pas het aan om het 
 
 ```python
 detector = ObjectDetector(
-    obj_type=ObjectType.ANY,  obj_color=ColorHSV.RED,
+    obj_type=OBJECT_TYPE,  obj_color=                obj_type=OBJECT_TYPE, obj_color=OBJECT_COLOR,
     workspace_ratio=1.0,
     ret_image_bool=True,
     )
+```
+De waardes voor `OBJECT_TYPE` en `OBJECT_COLOR` zijn bovenin het programma gedefineerd.
+```python
+OBJECT_TYPE = ObjectType.ANY
+OBJECT_COLOR = ColorHSV.BLUE
 ```
 
 De volgende `obj_type`-waarden zijn gedefinieerd (zie `libraries/vision/enums.py`):
