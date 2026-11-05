@@ -18,6 +18,9 @@ from libraries.xarm_support.xarm_support import *
 import time
 
 camera_index = 0
+CAMERA_BRIGHTNESS = 1.5
+CAMERA_CONTRAST = 1.0
+CAMERA_SATURATION = 1.0
 robot_ip = '192.168.1.193'  # Replace with your robot's IP address
 
 def printMenu():
@@ -39,9 +42,9 @@ def main():
     moveToJointAngles(robot, home_joint_angles)
 
     camera = usbCamera(camera_index)
-    camera.set_brightness(1.0)
-    camera.set_contrast(1.0)
-    camera.set_saturation(1.0)
+    camera.set_brightness(CAMERA_BRIGHTNESS)
+    camera.set_contrast(CAMERA_CONTRAST)
+    camera.set_saturation(CAMERA_SATURATION)
 
     while True:
         printMenu()
@@ -54,6 +57,7 @@ def main():
             robot.disconnect()
             time.sleep(0.5)
             camera.end();
+            cv2.destroyAllWindows()
             break
 
         if ans == 'p':  # returns True if "q" is pressed
@@ -70,7 +74,7 @@ def main():
             moveToJointAngles(robot, home_joint_angles)
             
             detector = ObjectDetector(
-                obj_type=ObjectType.ANY, obj_color=ColorHSV.RED,
+                obj_type=ObjectType.ANY, obj_color=ColorHSV.BLUE,
                 workspace_ratio=1.0,
                 ret_image_bool=True,
             )
@@ -89,9 +93,9 @@ def main():
                     #print(realword_pose)
             
             cv2.imshow("Camera", image)
-            print("Press any key in an image window to continue")
-            cv2.waitKey(0)  # keeps the windows responsive
-            cv2.destroyAllWindows()
+            #print("Press any key in an image window to continue")
+            cv2.waitKey(1)  # keeps the windows responsive
+            #cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":

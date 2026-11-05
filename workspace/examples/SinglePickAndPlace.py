@@ -27,6 +27,9 @@ from libraries.vision.enums import *
 from libraries.xarm_support.xarm_support import *
 
 camera_index = 0
+CAMERA_BRIGHTNESS = 1.5
+CAMERA_CONTRAST = 1.0
+CAMERA_SATURATION = 1.0
 robot_ip = '192.168.1.193'  # Replace with your robot's IP address
 
 WORKSPACE_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'workspace.json')
@@ -84,6 +87,9 @@ def main():
         moveToJointAngles(robot, home_joint_angles)
 
         camera = usbCamera(camera_index)
+        camera.set_brightness(CAMERA_BRIGHTNESS)
+        camera.set_contrast(CAMERA_CONTRAST)
+        camera.set_saturation(CAMERA_SATURATION)
 
         # 1. Take photo
         print("To observation pose")

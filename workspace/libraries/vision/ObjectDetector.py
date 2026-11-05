@@ -69,11 +69,11 @@ class ObjectDetector:
 
         # Extract working area image from markers
         im_work = extract_img_workspace(img, workspace_ratio=self._workspace_ratio)
-        cv2.imshow("Work", im_work)
         if im_work is None:  # Case where working area is not found
             status = False#CommandStatus.MARKERS_NOT_FOUND
             print("Vision Node - Markers Not Found !")
             return status, result_pose, "", "", img
+        cv2.imshow("Work", im_work)
 
         # Generating threshold image with HSV
         im_thresh = self.image_preprocess_with_hsv(im_work, use_s_prime=False)

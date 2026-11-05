@@ -112,10 +112,10 @@ class usbCamera:
         return im_np
 
     def set_brightness(self, brightness):
-        self._brightness = brightness
+        self.brightness = brightness
 
     def set_contrast(self, contrast):
-        self._contrast = contrast
+        self.contrast = contrast
 
     def set_saturation(self, saturation):
-        self._saturation = saturation
+        self.saturation = saturation

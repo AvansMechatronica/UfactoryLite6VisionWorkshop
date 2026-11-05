@@ -59,7 +59,10 @@ def printMenu():
 def main():
     printMenu()
 
-    camera = usbCamera(1, False)
+    camera = usbCamera(camera_index, False)
+    camera.set_brightness(1.5)
+    camera.set_contrast(1.0)
+    camera.set_saturation(1.0)
 
     time.sleep(2)
 

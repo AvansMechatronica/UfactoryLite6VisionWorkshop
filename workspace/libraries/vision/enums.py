@@ -31,8 +31,10 @@ class ColorHSV:
     """
     MIN HSV, MAX HSV, Invert Hue (bool)
     """
-    BLUE = [90, 50, 85], [125, 255, 255], False
+    #BLUE = [90, 50, 85], [125, 255, 255], False
+    BLUE = [90, 120, 85], [125, 255, 255], False
     RED = [15, 80, 75], [170, 255, 255], True
+    #GREEN = [40, 60, 75], [85, 255, 255], False
     GREEN = [40, 60, 75], [85, 255, 255], False
     ANY = [0, 50, 100], [179, 255, 255], False
 
