@@ -49,9 +49,13 @@ Zoals `markerTest.py`, maar op de foto wordt een rood object gezocht met `Object
 
 ## Pick-and-place
 
-### `PickAndPlace.py`
+### `SinglePickAndPlace.py`
 
 Zoekt een rood object op het werkvlak, rekent de positie om met de kalibratie uit `workspace.json` en pakt het object met de vacuümgripper op. Daarna wordt het object naar een vaste positie in robotcoördinaten verplaatst. Kalibreer eerst het werkvlak en pas zo nodig de objecthoogte en plaatspositie in het script aan. Na afloop druk je op een toets in een beeldvenster om af te sluiten.
+
+### `MultiplePickAndPlace.py`
+
+Sorteert objecten van het werkvlak in bakjes links van het werkvlak. De volgorde is rood, groen, blauw; per kleur eerst vierkant, dan rond en dan alles (9 bakjes, hart-op-hart 40 mm). Per object maakt de robot een foto, pakt het object met de vacuümgripper en legt het in het bijbehorende bakje. Dit herhaalt zich tot er geen object van die kleur en vorm meer ligt (maximaal 10 per combinatie). De bakjespositie staat bovenin het script: `BIN_FIRST_X`, `BIN_Y`, `BIN_Z` en `BIN_PITCH`. Pas deze aan naar jouw opstelling en kalibreer eerst het werkvlak.
 
 ### `SimpleFruits.py`, `SimpleFruitsRoboflow.py`
 

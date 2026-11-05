@@ -1,5 +1,5 @@
 """
-Pick and place example.
+Single Pick and place example.
 
 Steps:
  1. Go to the observation pose and take a photo
