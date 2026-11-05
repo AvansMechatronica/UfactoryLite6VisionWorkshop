@@ -22,6 +22,8 @@ CAMERA_BRIGHTNESS = 1.5
 CAMERA_CONTRAST = 1.0
 CAMERA_SATURATION = 1.0
 robot_ip = '192.168.1.193'  # Replace with your robot's IP address
+OBJECT_TYPE = ObjectType.ANY
+OBJECT_COLOR = ColorHSV.BLUE
 
 def printMenu():
     print("Commands: ")
@@ -74,7 +76,7 @@ def main():
             moveToJointAngles(robot, home_joint_angles)
             
             detector = ObjectDetector(
-                obj_type=ObjectType.ANY, obj_color=ColorHSV.BLUE,
+                obj_type=OBJECT_TYPE, obj_color=OBJECT_COLOR,
                 workspace_ratio=1.0,
                 ret_image_bool=True,
             )

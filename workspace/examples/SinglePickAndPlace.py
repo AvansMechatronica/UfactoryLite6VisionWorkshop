@@ -31,6 +31,8 @@ CAMERA_BRIGHTNESS = 1.5
 CAMERA_CONTRAST = 1.0
 CAMERA_SATURATION = 1.0
 robot_ip = '192.168.1.193'  # Replace with your robot's IP address
+OBJECT_TYPE = ObjectType.ANY
+OBJECT_COLOR = ColorHSV.BLUE
 
 WORKSPACE_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'workspace.json')
 
@@ -108,7 +110,7 @@ def main():
 
         # 3. Detect object
         detector = ObjectDetector(
-            obj_type=ObjectType.ANY, obj_color=ColorHSV.RED,
+            obj_type=OBJECT_TYPE, obj_color=OBJECT_COLOR,
             workspace_ratio=1.0,
             ret_image_bool=True,
         )

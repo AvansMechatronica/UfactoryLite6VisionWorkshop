@@ -34,6 +34,7 @@ Werk zorgvuldig en kijk goed wat er gebeurt bij het verplaatsen van elke afzonde
 
 Noteer deze waarden zorgvuldig, aangezien ze later gebruikt worden voor het herkennen van de objecten.
 
+#### Voorbeeld-
 :::{tip}
 Verschuif de objecten over de gehele workspace om te controleren of de kleurwaarden consistent worden herkend.
 :::

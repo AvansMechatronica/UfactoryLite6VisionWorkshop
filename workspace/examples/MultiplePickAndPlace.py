@@ -53,8 +53,10 @@ BIN_PITCH = 40.0         # center-to-center distance between bins
 MAX_OBJECTS_PER_CLASS = 10  # safety limit
 
 # Sorting order: color first (red, green, blue), then shape (square, circle, any)
-COLORS = [("red", ColorHSV.RED), ("green", ColorHSV.GREEN), ("blue", ColorHSV.BLUE)]
-SHAPES = [("square", ObjectType.SQUARE), ("circle", ObjectType.CIRCLE), ("any", ObjectType.ANY)]
+#COLORS = [("red", ColorHSV.RED), ("green", ColorHSV.GREEN), ("blue", ColorHSV.BLUE)]
+#SHAPES = [("square", ObjectType.SQUARE), ("circle", ObjectType.CIRCLE), ("any", ObjectType.ANY)]
+COLORS = [("red", ColorHSV.RED), ("blue", ColorHSV.BLUE)]
+SHAPES = [("square", ObjectType.SQUARE), ("any", ObjectType.ANY)]
 
 # (color name, color, shape name, shape) -> bin position
 BINS = {}
