@@ -17,6 +17,7 @@ from libraries.vision.Workspace import Workspace
 from libraries.vision.enums import *
 
 robot_ip = '192.168.1.193'  # Replace with your robot's IP address
+warning_sequence = 0
 
 camera_index = 0
 
@@ -44,7 +45,8 @@ def takePhoto():
     cv2.waitKey(1)
 
 
-def orientation_warning(position):
+def orientation_warning(position, marker_number=None):
+    global warning_sequence
     warnings = []
     roll_deviation = abs((position[3] - 180 + 180) % 360 - 180)
     pitch_deviation = abs((position[4] + 180) % 360 - 180)
@@ -54,13 +56,19 @@ def orientation_warning(position):
     if pitch_deviation > 2:
         warnings.append(f"pitch={position[4]:.2f} deg (expected 0 +/- 2 deg)")
 
-    return f" WARNING: {', '.join(warnings)}" if warnings else ""
+    marker = f" marker {marker_number}" if marker_number is not None else ""
+    if not warnings:
+        return ""
+    warning_sequence += 1
+    return f" WARNING #{warning_sequence}{marker}: {', '.join(warnings)}"
 
 
 def read_marker_position(robot, marker_number):
     stop_event = threading.Event()
 
     def show_position():
+        spinner_frames = ("|", "\\", "-", "/")
+        frame_index = 0
         while not stop_event.is_set():
             code, position = robot.get_position()
             if code == 0:
@@ -70,11 +78,19 @@ def read_marker_position(robot, marker_number):
                         flush=True,
                     )
                 else:
-                    warning = orientation_warning(position)
+                    warning = orientation_warning(position, marker_number)
                     if warning:
+                        print("\r" + " " * 32 + "\r", end="", flush=True)
                         print(warning.strip(), flush=True)
             else:
+                print("\r" + " " * 32 + "\r", end="", flush=True)
                 print(f"Could not read robot position, code {code}", flush=True)
+            print(
+                f"\rMoving robot by hand {spinner_frames[frame_index]}",
+                end="",
+                flush=True,
+            )
+            frame_index = (frame_index + 1) % len(spinner_frames)
             stop_event.wait(0.5)
 
     monitor = threading.Thread(target=show_position)
@@ -87,12 +103,14 @@ def read_marker_position(robot, marker_number):
     finally:
         stop_event.set()
         monitor.join()
+        print("\r" + " " * 32 + "\r", end="", flush=True)
+        print()
 
     code, position = robot.get_position()
     if code != 0:
         raise RuntimeError(f"Could not record marker {marker_number}, code {code}")
     print(f"Recorded marker {marker_number}: {position}")
-    warning = orientation_warning(position)
+    warning = orientation_warning(position, marker_number)
     if warning:
         print(warning.strip())
     return position
