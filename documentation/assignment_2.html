@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="nl" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opdracht 2: Part picking and placing with vision &mdash; Workshop Vision Driven Robotics 0.1 documentatie</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=a57088fb"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/translations.js?v=e4d38c6a"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Voorbeelden" href="examples_README.html" />
+    <link rel="prev" title="Opdracht 1: Part picking and placing" href="assignment_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Workshop Vision Driven Robotics
+              <img src="../_static/avans-hogeschool-logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Zoek in documentatie" aria-label="Zoek in documentatie" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigatiemenu">
+              <p class="caption" role="heading"><span class="caption-text">Inhoudsopgave:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installatie van de software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Aansluiten van de uFactory Lite6 robot op de development-computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment_1.html">Opdracht 1: Part picking and placing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Opdracht 2: Part picking and placing with vision</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#voorbereidingen">Voorbereidingen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#montage-van-de-camera">Montage van de camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maken-van-een-workspace">Maken van een workspace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testen-van-de-camera-met-de-workspace">Testen van de camera met de workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#objectparameters-bepalen">Objectparameters bepalen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#kleurspectra-van-de-op-te-pakken-objecten-bepalen">Kleurspectra van de op te pakken objecten bepalen</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#voorbeeld">Voorbeeld-</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#testen-van-de-kleurspectra">Testen van de kleurspectra</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#kalibratie-van-de-workspace">Kalibratie van de workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testen-van-enkelvoudige-pick-and-place">Testen van enkelvoudige Pick and Place</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opdracht-2-1">Opdracht 2.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples_README.html">Voorbeelden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_README.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xarm_support_README.html">xarm_support-bibliotheek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vision_README.html">Vision-bibliotheek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xarm_api.html">xArm API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teacher_manual.html">Docentenhandleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Veelgestelde vragen</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Navigatiemenu voor mobiel" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Workshop Vision Driven Robotics</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Paginanavigatie">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Opdracht 2: Part picking and placing with vision</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/documentation/assignment_2.md.txt" rel="nofollow"> Bekijk paginabron</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="opdracht-2-part-picking-and-placing-with-vision">
+<h1>Opdracht 2: Part picking and placing with vision<a class="headerlink" href="#opdracht-2-part-picking-and-placing-with-vision" title="Link to this heading"></a></h1>
+<p>In deze opdracht gaan we aan de slag met het oppakken en plaatsen van objecten met behulp van vision. De objecten worden herkend door de camera op basis van kleur en vorm.</p>
+<section id="voorbereidingen">
+<h2>Voorbereidingen<a class="headerlink" href="#voorbereidingen" title="Link to this heading"></a></h2>
+<section id="montage-van-de-camera">
+<h3>Montage van de camera<a class="headerlink" href="#montage-van-de-camera" title="Link to this heading"></a></h3>
+<p>Monteer de camera op de aangegeven positie zoals te zien is in de onderstaande afbeeldingen.
+<img alt="image" src="../_images/camera_mount1.jpg" /></p>
+<p><img alt="image" src="../_images/camera_mount2.jpg" /></p>
+</section>
+<section id="maken-van-een-workspace">
+<h3>Maken van een workspace<a class="headerlink" href="#maken-van-een-workspace" title="Link to this heading"></a></h3>
+<p>Druk het bestand <code class="docutils literal notranslate"><span class="pre">RobotVisionWorkspaceV2.pdf</span></code> (te vinden in de map <code class="docutils literal notranslate"><span class="pre">support/workspace</span></code>) af met een printer en positioneer de workspace onder de robot.</p>
+</section>
+<section id="testen-van-de-camera-met-de-workspace">
+<h3>Testen van de camera met de workspace<a class="headerlink" href="#testen-van-de-camera-met-de-workspace" title="Link to this heading"></a></h3>
+<p>Start het programma <code class="docutils literal notranslate"><span class="pre">markerTest.py</span></code> (map <code class="docutils literal notranslate"><span class="pre">workspace/examples</span></code>, zie ook <a class="reference internal" href="examples_README.html"><span class="std std-doc">examples_README.md</span></a>) en bestudeer de weergegeven afbeeldingen. Controleer of alle markers correct worden herkend. Zie onderstaande afbeelding voor een voorbeeld.</p>
+<p><img alt="image" src="../_images/object_detector_markers.png" />
+Als dit niet correct wordt weergegeven, verschuif dan de workspace zodat alle markers correct worden herkend.</p>
+<p>Fixeer de workspace (met tape) zodat deze niet meer verschuift.</p>
+</section>
+</section>
+<section id="objectparameters-bepalen">
+<h2>Objectparameters bepalen<a class="headerlink" href="#objectparameters-bepalen" title="Link to this heading"></a></h2>
+<p>De objectparameters bestaan uit de HSV-kleurwaarden en de vorm van het object.</p>
+<section id="kleurspectra-van-de-op-te-pakken-objecten-bepalen">
+<h3>Kleurspectra van de op te pakken objecten bepalen<a class="headerlink" href="#kleurspectra-van-de-op-te-pakken-objecten-bepalen" title="Link to this heading"></a></h3>
+<p>Leg een object op de workspace zodat de camera het kan waarnemen.
+Start de tool <code class="docutils literal notranslate"><span class="pre">hsvFilterFromStream.py</span></code> (map <code class="docutils literal notranslate"><span class="pre">workspace/tools</span></code>, zie ook <a class="reference internal" href="tools_README.html"><span class="std std-doc">tools_README.md</span></a>) en bepaal voor elk object de juiste HSV-kleurwaarden. Verplaats de sliders totdat alleen het object zichtbaar is en de achtergrond wordt uitgesloten.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Werk zorgvuldig en kijk goed wat er gebeurt bij het verplaatsen van elke afzonderlijke slider.</p>
+</div>
+<p>Hieronder is een voorbeeld voor de kleur rood weergegeven.
+<img alt="image" src="../_images/hsv_source_image.png" /></p>
+<ul class="simple">
+<li><p>Orgineel beeld</p></li>
+</ul>
+<p><img alt="image" src="../_images/hsv_sliders_red.png" /></p>
+<ul class="simple">
+<li><p>Slider instellingen</p></li>
+</ul>
+<p>Noteer deze waarden zorgvuldig, aangezien ze later gebruikt worden voor het herkennen van de objecten.</p>
+<section id="voorbeeld">
+<h4>Voorbeeld-<a class="headerlink" href="#voorbeeld" title="Link to this heading"></a></h4>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Verschuif de objecten over de gehele workspace om te controleren of de kleurwaarden consistent worden herkend.</p>
+</div>
+</section>
+</section>
+<section id="testen-van-de-kleurspectra">
+<h3>Testen van de kleurspectra<a class="headerlink" href="#testen-van-de-kleurspectra" title="Link to this heading"></a></h3>
+<p>Start het programma <code class="docutils literal notranslate"><span class="pre">ObjectDetectorTest.py</span></code> (map <code class="docutils literal notranslate"><span class="pre">workspace/examples</span></code>) om te controleren of de objecten correct worden herkend.</p>
+<p>Je kunt het type object en de kleur aanpassen in de code om te testen of de objecten correct worden herkend.</p>
+<p>Zoek het volgende codefragment in <code class="docutils literal notranslate"><span class="pre">ObjectDetectorTest.py</span></code> en pas het aan om het gewenste object en kleur te testen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">detector</span> <span class="o">=</span> <span class="n">ObjectDetector</span><span class="p">(</span>
+    <span class="n">obj_type</span><span class="o">=</span><span class="n">OBJECT_TYPE</span><span class="p">,</span>  <span class="n">obj_color</span><span class="o">=</span>                <span class="n">obj_type</span><span class="o">=</span><span class="n">OBJECT_TYPE</span><span class="p">,</span> <span class="n">obj_color</span><span class="o">=</span><span class="n">OBJECT_COLOR</span><span class="p">,</span>
+    <span class="n">workspace_ratio</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">ret_image_bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>De waardes voor <code class="docutils literal notranslate"><span class="pre">OBJECT_TYPE</span></code> en <code class="docutils literal notranslate"><span class="pre">OBJECT_COLOR</span></code> zijn bovenin het programma gedefineerd.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OBJECT_TYPE</span> <span class="o">=</span> <span class="n">ObjectType</span><span class="o">.</span><span class="n">ANY</span>
+<span class="n">OBJECT_COLOR</span> <span class="o">=</span> <span class="n">ColorHSV</span><span class="o">.</span><span class="n">BLUE</span>
+</pre></div>
+</div>
+<p>De volgende <code class="docutils literal notranslate"><span class="pre">obj_type</span></code>-waarden zijn gedefinieerd (zie <code class="docutils literal notranslate"><span class="pre">libraries/vision/enums.py</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ObjectType</span><span class="p">:</span>
+    <span class="n">SQUARE</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">CIRCLE</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">ANY</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>De volgende <code class="docutils literal notranslate"><span class="pre">obj_color</span></code>-waarden zijn gedefinieerd:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ColorHSV</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    MIN HSV, MAX HSV, Invert Hue (bool)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">BLUE</span> <span class="o">=</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">85</span><span class="p">],</span> <span class="p">[</span><span class="mi">125</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="kc">False</span>
+    <span class="n">RED</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span> <span class="p">[</span><span class="mi">170</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="kc">True</span>
+    <span class="n">GREEN</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="kc">False</span>
+    <span class="n">ANY</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">179</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>Je kunt ook eigen kleurwaarden gebruiken door een tuple van de vorm <code class="docutils literal notranslate"><span class="pre">([MIN_H,</span> <span class="pre">MIN_S,</span> <span class="pre">MIN_V],</span> <span class="pre">[MAX_H,</span> <span class="pre">MAX_S,</span> <span class="pre">MAX_V],</span> <span class="pre">Invert_Hue)</span></code> op te geven. Zie het voorbeeld hieronder.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">detector</span> <span class="o">=</span> <span class="n">ObjectDetector</span><span class="p">(</span>
+    <span class="n">obj_type</span><span class="o">=</span><span class="n">ObjectType</span><span class="o">.</span><span class="n">ANY</span><span class="p">,</span>  <span class="n">obj_color</span><span class="o">=</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span> <span class="p">[</span><span class="mi">170</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">workspace_ratio</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">ret_image_bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>In onderstaande afbeelding kun je zien hoe een object wordt herkend op basis van de kleurwaarden die je hebt ingesteld.
+<img alt="image" src="../_images/object_detector_results.png" /></p>
+<p>De waarden die de objectdetector geeft zijn relatief, in % t.o.v. marker 1 in de workspace. Marker 1 dient als referentiepunt voor de kalibratie van de workspace. Later worden deze waarden omgerekend naar absolute coördinaten in de workspace (ten opzichte van de robot).</p>
+</section>
+</section>
+<section id="kalibratie-van-de-workspace">
+<h2>Kalibratie van de workspace<a class="headerlink" href="#kalibratie-van-de-workspace" title="Link to this heading"></a></h2>
+<p>Om de workspace correct te kalibreren, gebruik je het script <code class="docutils literal notranslate"><span class="pre">calibrate_workspace.py</span></code> (map <code class="docutils literal notranslate"><span class="pre">workspace/tools</span></code>, zie ook <a class="reference internal" href="tools_README.html"><span class="std std-doc">tools_README.md</span></a>). Dit script helpt bij het instellen van de referentiepunten in de workspace zodat de objectdetector de positie van objecten nauwkeurig kan bepalen.</p>
+<p>Plaats in de gripper van de robot een kalibratietool, zie afbeelding hieronder.</p>
+<p><img alt="image" src="../_images/calibarion_tool.jpg" /></p>
+<p>Voer het script <code class="docutils literal notranslate"><span class="pre">calibrate_workspace.py</span></code> uit om de kalibratie van de workspace te starten. Het script zal je begeleiden bij het instellen van de referentiepunten.
+Zorg dat je de markers nauwkeurig “aanwijst” met de kalibratietool. De kalibratietool dient loodrecht te worden gehouden tijdens het aanwijzen van de markers; het programma geeft een waarschuwing als dit niet correct gebeurt.</p>
+<p><img alt="image" src="../_images/calibration_point.jpg" /></p>
+<p>Na het succesvol kalibreren van de workspace wordt een JSON-bestand (<code class="docutils literal notranslate"><span class="pre">workspace.json</span></code>) aangemaakt met de kalibratiegegevens van de workspace. Een voorbeeld van de inhoud van dit bestand is hieronder weergegeven.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;UpperLeftPose&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">173.642838</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-116.241768</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">90.18734</span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;UpperRightPose&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">172.243362</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">128.624191</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">88.854294</span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;LowerRightPose&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">413.970306</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">116.073051</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">89.728302</span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;LowerLeftPose&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">414.263641</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-110.855942</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">91.140907</span><span class="p">}}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Notitie</p>
+<p>Als de workspace verschoven is, moet je de kalibratie opnieuw uitvoeren om ervoor te zorgen dat de objectdetector de juiste posities van de objecten kan bepalen.</p>
+</div>
+</section>
+<section id="testen-van-enkelvoudige-pick-and-place">
+<h2>Testen van enkelvoudige Pick and Place<a class="headerlink" href="#testen-van-enkelvoudige-pick-and-place" title="Link to this heading"></a></h2>
+<p>Met het script <code class="docutils literal notranslate"><span class="pre">PickAndPlace.py</span></code> (map <code class="docutils literal notranslate"><span class="pre">workspace/examples</span></code>, zie ook <a class="reference internal" href="examples_README.html"><span class="std std-doc">examples_README.md</span></a>) test je de enkelvoudige pick-and-place-functionaliteit van de robot. Het script gebruikt de camera en de objectdetector om een object te herkennen, rekent de positie om naar robotcoördinaten met behulp van de eerder gekalibreerde workspace (<code class="docutils literal notranslate"><span class="pre">workspace.json</span></code>), en stuurt vervolgens de robot aan om het object op te pakken en naar de opgegeven locatie te verplaatsen. Zorg ervoor dat de objecten correct zijn gepositioneerd binnen de gekalibreerde workspace voordat je het script uitvoert.</p>
+<p>Zoek het volgende codefragment in <code class="docutils literal notranslate"><span class="pre">PickAndPlace.py</span></code> en pas het aan om het gewenste object en kleur te testen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">detector</span> <span class="o">=</span> <span class="n">ObjectDetector</span><span class="p">(</span>
+    <span class="n">obj_type</span><span class="o">=</span><span class="n">ObjectType</span><span class="o">.</span><span class="n">ANY</span><span class="p">,</span>  <span class="n">obj_color</span><span class="o">=</span><span class="n">ColorHSV</span><span class="o">.</span><span class="n">RED</span><span class="p">,</span>
+    <span class="n">workspace_ratio</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">ret_image_bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Bestudeer de werking van het script en probeer te begrijpen hoe de objectdetector en de robot samenwerken om de pick-and-place-taken uit te voeren.</p>
+</section>
+<section id="opdracht-2-1">
+<h2>Opdracht 2.1<a class="headerlink" href="#opdracht-2-1" title="Link to this heading"></a></h2>
+<p>Maak een programma dat een aantal willekeurige objecten uitsorteert.</p>
+<ul class="simple">
+<li><p>Kleur: Sorteer de objecten op basis van hun kleur.</p></li>
+<li><p>Vorm: Sorteer de objecten op basis van hun vorm (bijvoorbeeld vierkant of rond, zie de klasse <code class="docutils literal notranslate"><span class="pre">ObjectType</span></code> in <code class="docutils literal notranslate"><span class="pre">libraries/vision/enums.py</span></code>).</p></li>
+</ul>
+<p>Het programma moet de objecten detecteren met behulp van de camera en vervolgens de robot aansturen om de objecten naar de juiste locaties te verplaatsen. Je kunt hiervoor het script <code class="docutils literal notranslate"><span class="pre">PickAndPlace.py</span></code> als basis gebruiken en aanpassen aan de specifieke eisen van de opdracht.</p>
+<p>Hieronder enkele voorbeeldafbeeldingen van een pick-and-place-opstelling:</p>
+<p><img alt="image" src="../_images/gepositioneerde_objecten.jpg" /></p>
+<p><img alt="image" src="../_images/object_detector_camera.png" /></p>
+<p><img alt="image" src="../_images/object_detector_workspace.png" /></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Voettekst">
+        <a href="assignment_1.html" class="btn btn-neutral float-left" title="Opdracht 1: Part picking and placing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Vorige</a>
+        <a href="examples_README.html" class="btn btn-neutral float-right" title="Voorbeelden" accesskey="n" rel="next">Volgende <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Gerard Harkema.</p>
+  </div>
+
+  Gebouwd met <a href="https://www.sphinx-doc.org/">Sphinx</a> met een
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thema</a>
+    geleverd door <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
